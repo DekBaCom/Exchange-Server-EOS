@@ -27,7 +27,7 @@ permalink: /
 <div class="stats-grid">
   <div class="stat-card">
     <span class="stat-value">Oct '25</span>
-    <span class="stat-label">Support Ends</span>
+    <span class="stat-label">Support Ended</span>
   </div>
   <div class="stat-card">
     <span class="stat-value">2016/19</span>
