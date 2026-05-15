@@ -132,7 +132,7 @@ If you only need email (no Teams, no Office apps), [standalone Exchange Online p
 
 | Add-On | Price (est.) | Purpose |
 |:---|---:|:---|
-| [Microsoft Defender for Office 365 Plan 1](https://microsoft.com/security/business/microsoft-defender-office-365) | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
+| [Microsoft Defender for Office 365 Plan 1](https://learn.microsoft.com/en-us/security/business/microsoft-defender-office-365) | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
 | Microsoft Defender for Office 365 Plan 2 | ~$5/user/mo | Plan 1 + threat investigation, attack simulation |
 | [Microsoft 365 Backup](https://learn.microsoft.com/en-us/microsoft-365-backup/overview) | ~$0.15/GB/mo | Native backup for Exchange Online, OneDrive, SharePoint |
 | [Purview Information Protection P1](https://www.microsoft.com/en-us/compliance/purview) | Included in E3 | Sensitivity labels, encryption |

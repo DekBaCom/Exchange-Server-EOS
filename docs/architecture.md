@@ -53,7 +53,7 @@ graph TD
 
 ## Use Case 2: Hybrid Coexistence (Transitional/Long-Term)
 
-The **Hybrid** architecture is ideal for large organizations that need a phased migration or have specific compliance requirements that keep some mailboxes on-premises. ([Hybrid deployment guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment))
+The **Hybrid** architecture is ideal for large organizations that need a phased migration or have specific compliance requirements that keep some mailboxes on-premises. 
 
 ```mermaid
 graph LR
@@ -76,9 +76,9 @@ graph LR
 ```
 
 ### Key Components:
-- **Hybrid Configuration Wizard (HCW):** Establishes the trust and secure mail flow between environments ([HCW guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard)).
-- **Shared Namespace:** Users share the same `@company.com` domain regardless of where their mailbox is located ([Mail flow](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments)).
-- **Cross-Premises Free/Busy:** Allows users to see each other's calendar availability ([Free/busy sharing](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/free-busy-in-hybrid-deployments)) during the transition.
+- **Hybrid Configuration Wizard (HCW):** Establishes the trust and secure mail flow between environments .
+- **Shared Namespace:** Users share the same `@company.com` domain regardless of where their mailbox is located .
+- **Cross-Premises Free/Busy:** Allows users to see each other's calendar availability  during the transition.
 
 ---
 
@@ -107,5 +107,5 @@ graph TD
 
 ### Key Components:
 - **Database Availability Group (DAG):** Provides high availability and continuous replication ([DAG architecture](https://learn.microsoft.com/en-us/exchange/architecture/database-availability-groups)) of mailbox databases.
-- **Exchange Server SE:** The subscription-based successor to Exchange 2019 ([Exchange SE licensing](https://learn.microsoft.com/en-us/exchange/licensing)), ensuring a supported on-premises environment.
+- **Exchange Server SE:** The subscription-based successor to Exchange 2019 , ensuring a supported on-premises environment.
 - **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability ([High availability](https://learn.microsoft.com/en-us/exchange/architecture/high-availability)).

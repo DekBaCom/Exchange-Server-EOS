@@ -94,7 +94,7 @@ Microsoft 365 E3 at $36/user/month includes Exchange Online, Teams, SharePoint, 
 | Cost Item | Year 1 | Years 2–5 (each) |
 |:---|---:|---:|
 | [Exchange Online Plan 2](https://learn.microsoft.com/en-us/exchange/servicedescriptions/exchange-online-service-description/exchange-online-plans-and-pricing) (500 × $8/mo) | $48,000 | $48,000 |
-| [Microsoft Defender for Office 365 Plan 1](https://microsoft.com/security/business/microsoft-defender-office-365) | $12,000 | $12,000 |
+| [Microsoft Defender for Office 365 Plan 1](https://learn.microsoft.com/en-us/security/business/microsoft-defender-office-365) | $12,000 | $12,000 |
 | Migration project | $40,000 | $0 |
 | IT admin time (0.25 FTE) | $10,000 | $10,000 |
 | Training | $5,000 | $1,000 |

@@ -73,7 +73,7 @@ Migrate users in batches while maintaining coexistence. Works with Exchange 2003
 ---
 
 #### Hybrid Migration (Recommended for 150+ Mailboxes)
-Full hybrid coexistence using the Exchange Hybrid Configuration Wizard ([Hybrid Configuration Wizard](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard)). Users on either side can see each other's calendar and free/busy ([Free/busy sharing](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/free-busy-in-hybrid-deployments)).
+Full hybrid coexistence using the Exchange Hybrid Configuration Wizard .
 
 **Prerequisites:**
 - Exchange Server 2016 CU23+ or Exchange Server 2019 CU13+
@@ -83,11 +83,11 @@ Full hybrid coexistence using the Exchange Hybrid Configuration Wizard ([Hybrid 
 - MX record can remain on-premises during migration
 
 **Process:**
-1. Run the **Hybrid Configuration Wizard** (HCW) from Exchange Admin Center ([HCW guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard))
-2. Configure Hybrid Agent (modern hybrid) or direct publishing ([Hybrid Agent](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent))
+1. Run the **Hybrid Configuration Wizard** (HCW) from Exchange Admin Center 
+2. Configure Hybrid Agent (modern hybrid) or direct publishing 
 3. Migrate mailboxes using `New-MigrationBatch` in Exchange Online PowerShell ([PowerShell cmdlet reference](https://learn.microsoft.com/powershell/module/exchange/new-migrationbatch))
 4. Validate each batch before proceeding
-5. After all users are migrated, update MX and decommission on-premises Exchange ([Hybrid mail flow](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
+5. After all users are migrated, update MX and decommission on-premises Exchange 
 
 ```powershell
 # Example: Create a migration batch in Exchange Online PowerShell
@@ -117,9 +117,9 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
    - Assign Exchange Online licenses to users ([Exchange Online service description](https://learn.microsoft.com/en-us/exchange/servicedescriptions/exchange-online-service-description))
 
 2. **Hybrid configuration** (if using hybrid migration)
-   - Download and run the Hybrid Configuration Wizard ([HCW guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard))
-   - Configure inbound and outbound hybrid mail flow connectors ([Mail flow](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
-   - Validate free/busy sharing between on-premises and cloud ([Free/busy](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/free-busy-in-hybrid-deployments))
+   - Download and run the Hybrid Configuration Wizard 
+   - Configure inbound and outbound hybrid mail flow connectors 
+   - Validate free/busy sharing between on-premises and cloud 
 
 3. **Migration execution**
    - Migrate pilot group first (IT staff)
@@ -145,7 +145,7 @@ Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchan
 
 ### Key Characteristics
 
-- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses ([Exchange licensing](https://learn.microsoft.com/en-us/exchange/licensing))
+- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses 
 - **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation ([Upgrade paths](https://learn.microsoft.com/en-us/exchange/upgrades))
 - **Feature parity** — Includes all Exchange 2019 features plus ongoing updates
 - **Support lifecycle** — Extended support through 2030 or later (verify with Microsoft)
@@ -200,7 +200,7 @@ Get-MoveRequest | Get-MoveRequestStatistics |
 ## Option 3 — Hybrid Deployment
 {: #option-3-hybrid-deployment }
 
-A long-term hybrid deployment maintains Exchange servers on-premises while hosting a subset of users in Exchange Online ([Hybrid deployment guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment)). This is not the same as a hybrid migration (which is temporary coexistence while migrating). Long-term hybrid suits organizations with:
+A long-term hybrid deployment maintains Exchange servers on-premises while hosting a subset of users in Exchange Online . This is not the same as a hybrid migration (which is temporary coexistence while migrating). Long-term hybrid suits organizations with:
 
 - Regulatory requirements keeping specific mailboxes on-premises
 - Subsidiaries or departments with different compliance profiles
@@ -218,7 +218,7 @@ On-Premises Active Directory ←→ Entra ID Connect ←→ Microsoft Entra ID
 ### Long-Term Hybrid Requirements
 
 - At minimum one Exchange server on-premises (for hybrid management)
-- Exchange Hybrid License ([Hybrid license](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent-and-licensing)) (free from Microsoft for a single Exchange SE server used only for hybrid management)
+- Exchange Hybrid License  (free from Microsoft for a single Exchange SE server used only for hybrid management)
 - Entra ID Connect running and healthy
 - Valid SSL certificate for hybrid namespaces
 - Ongoing maintenance of on-premises Exchange server

@@ -37,17 +37,17 @@ Exchange Server is an attractive target for threat actors because:
 
 | CVE | Year | Severity | Impact |
 |:---|:---:|:---:|:---|
-| ProxyLogon (CVE-2021-26855) | 2021 | Critical | Pre-auth RCE, mass exploitation ([Microsoft security advisory](https://microsoft.com/security/advisory)) |
+| ProxyLogon (CVE-2021-26855) | 2021 | Critical | Pre-auth RCE, mass exploitation ([Microsoft security advisory](https://learn.microsoft.com/en-us/security/advisory)) |
 | ProxyShell (CVE-2021-34473) | 2021 | Critical | Pre-auth RCE |
 | ProxyNotShell (CVE-2022-41082) | 2022 | High | Authenticated RCE |
 | OWASSRF (CVE-2022-41080) | 2022 | Critical | Server-Side Request Forgery |
 
-New vulnerabilities of this severity will continue to be discovered — and after EOS, will never be patched. See [Microsoft Security Update Guide](https://microsoft.com/security/update-guide) for latest CVE information.
+New vulnerabilities of this severity will continue to be discovered — and after EOS, will never be patched. See [Microsoft Security Update Guide](https://learn.microsoft.com/en-us/security/update-guide) for latest CVE information.
 
 ### Recommended Security Mitigations (If Still Running Unsupported)
 
 - Restrict OWA and EWS to VPN-only access immediately
-- Enable Windows Defender and keep definition updates active ([Windows Defender configuration](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-antivirus))
+- Enable Windows Defender and keep definition updates active 
 - Deploy a Web Application Firewall (WAF) or Exchange-aware proxy using [Exchange Online Protection (EOP)](https://learn.microsoft.com/en-us/exchange/security/exchange-online-protection-overview) as a reference model
 - Implement network segmentation to isolate Exchange servers
 - Enable enhanced monitoring and alerting on Exchange event logs
@@ -143,7 +143,7 @@ Cloud migration changes your DR profile:
 
 | Client | Minimum Supported Version for Exchange Online |
 |:---|:---|
-| Outlook for Windows | Outlook 2016 (current channel recommended) ([Outlook requirements](https://learn.microsoft.com/en-us/outlook/client/requirements)) |
+| Outlook for Windows | Outlook 2016 (current channel recommended)  |
 | Outlook for Mac | Outlook 2019 or Microsoft 365 version |
 | Outlook Mobile (iOS/Android) | Current version from app store |
 | Outlook on the Web | Any modern browser |
