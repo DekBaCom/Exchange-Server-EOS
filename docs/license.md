@@ -69,6 +69,105 @@ If your Software Assurance has lapsed, you may not have rights to upgrade from E
 
 ---
 
+## Software Assurance (SA) — With vs. Without
+
+Whether your organization has active Software Assurance on Exchange 2016/2019 licenses significantly affects your migration options, costs, and timeline.
+
+### How to Check Your SA Status
+
+{: .note }
+Log in to the [Microsoft 365 Admin Center](https://admin.microsoft.com) or check with your Microsoft licensing partner / Volume Licensing Service Center (VLSC) to confirm your SA expiry date.
+
+| Check | Where to Look |
+|:---|:---|
+| SA expiry date | [Microsoft VLSC](https://www.microsoft.com/licensing/servicecenter) → Licenses → Software Assurance |
+| Agreement type | Purchase order or Microsoft licensing agreement document |
+| Entitlements summary | Contact your Microsoft Account Manager or reseller |
+
+---
+
+### Customers WITH Active Software Assurance
+
+If your Exchange 2016 or 2019 licenses have **active SA at the time Exchange SE releases**, you receive significant benefits:
+
+{: .highlight }
+**Key benefit:** Active SA gives you upgrade rights to Exchange Server SE at no additional server license cost.
+
+| What You Get | Details |
+|:---|:---|
+| Upgrade rights to Exchange SE | Migrate to Exchange SE server without buying new server licenses |
+| Step-up rights | Eligible to step up from Standard to Enterprise edition at reduced cost |
+| License Mobility | Flexibly reassign licenses across servers within your infrastructure |
+| Cold DR rights | Run a passive failover server without extra server license cost |
+| Planning & deployment support | Access to Microsoft FastTrack and deployment planning services |
+
+**Migration paths available WITH SA:**
+
+| Path | SA Benefit | Additional Cost |
+|:---|:---|:---|
+| Upgrade to Exchange Server SE | Server license **free** (upgrade right) | CAL subscriptions + hardware if needed |
+| Migrate to Exchange Online / M365 | SA licenses counted toward License Mobility | M365 / EXO subscription per user |
+| Hybrid deployment | Exchange Hybrid License available | Only subscription costs |
+
+{: .note }
+Even with SA, you still need to purchase **Exchange SE CAL subscriptions** (per user, annual). SA covers the server license upgrade, not user access licenses.
+
+---
+
+### Customers WITHOUT Active Software Assurance
+
+If your SA has lapsed or was never purchased, your options are narrower and typically more expensive.
+
+{: .warning }
+Without active SA, you **cannot upgrade** Exchange 2016/2019 server licenses to Exchange SE for free. You must purchase new Exchange SE server subscriptions.
+
+| What You Lose | Impact |
+|:---|:---|
+| Upgrade rights to Exchange SE | Must buy new Exchange SE server subscription (~$12,000/server/year) |
+| Step-up rights | Cannot reduce-cost upgrade between editions |
+| Cold DR rights | Passive failover server requires its own license |
+| Version coverage | Stuck on Exchange 2016/2019 until a new purchase is made |
+
+**Migration paths available WITHOUT SA:**
+
+| Path | License Requirement | Estimated Cost (500 users) |
+|:---|:---|:---|
+| Stay on Exchange 2019 (not recommended) | No new licenses needed | Security risk — unsupported after Oct 2025 |
+| Purchase Exchange SE fresh | New server subscription + new CAL subscriptions | ~$84,000/year (2 servers + 500 CALs) |
+| Migrate to Exchange Online Plan 2 | No Exchange server license needed | ~$48,000–$60,000/year |
+| Migrate to Microsoft 365 E3 | No Exchange server license needed | ~$216,000/year (full suite) |
+
+{: .important }
+For most organizations **without SA**, migrating to Exchange Online or Microsoft 365 is more cost-effective than purchasing Exchange SE from scratch. The cloud path eliminates server license costs entirely.
+
+---
+
+### SA vs. No-SA Decision Matrix
+
+| Scenario | With Active SA | Without SA |
+|:---|:---:|:---:|
+| Upgrade to Exchange SE (server license) | Free (upgrade right) | ~$12,000/server/year |
+| Exchange SE CAL | Annual subscription required | Annual subscription required |
+| Migrate to Exchange Online | Same cost | Same cost |
+| Migrate to Microsoft 365 | Same cost | Same cost |
+| Recommended path | Exchange SE **or** M365, depending on preference | **Exchange Online / M365** typically more economical |
+
+### Recommended Actions by SA Status
+
+**If you have active SA:**
+1. Confirm SA expiry date — ensure it covers the Exchange SE release (2025)
+2. Contact your licensing partner to confirm upgrade entitlements
+3. Plan upgrade to Exchange SE **or** use SA License Mobility to move to M365
+4. If staying on-premises, budget for Exchange SE CAL subscriptions and hardware
+
+**If you do NOT have active SA:**
+1. Do not extend investment in on-premises Exchange 2016/2019
+2. Get quotes for Exchange Online Plan 2 or Microsoft 365 E3
+3. Evaluate total 3–5 year cost: cloud subscription vs. new Exchange SE purchase
+4. Begin migration planning immediately — Exchange 2019 reaches end of support **October 14, 2025**
+
+---
+
 ## Exchange Server SE Licensing
 
 Exchange Server Subscription Edition (SE) replaces the perpetual model with an **annual subscription**.
