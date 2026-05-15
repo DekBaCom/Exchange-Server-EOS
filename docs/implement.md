@@ -141,59 +141,85 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
 ## Option 2 — Exchange Server Subscription Edition
 {: #option-2-exchange-server-subscription-edition }
 
-Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE](https://learn.microsoft.com/en-us/exchange)). It replaces the perpetual-license model with an annual subscription. It provides a supported upgrade path from Exchange 2016/2019 without a full reimplementation.
+Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE docs](https://learn.microsoft.com/en-us/exchange/new-features/new-features)). Released **June 11, 2025** (RTM is code-equivalent to Exchange Server 2019 CU15), it replaces the perpetual-license model with an annual subscription.
+
+{: .highlight }
+**Exchange SE RTM = Exchange Server 2019 CU15** — Organizations already running Exchange 2019 CU14 or CU15 can perform an **in-place upgrade** on the same server hardware.
 
 ### Key Characteristics
 
-- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses 
-- **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation
-- **Feature parity** — Includes all Exchange 2019 features plus ongoing updates
-- **Support lifecycle** — Extended support through 2030 or later (verify with Microsoft)
+- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses
+- **In-place upgrade from Exchange 2019 CU14/CU15** — Upgrade without reinstallation or hardware replacement
+- **Windows Server Core support** — Can be installed on Windows Server Core (no GUI required)
+- **TLS 1.2/1.3 enforced by default** — TLS 1.0/1.1 disabled out of the box
+- **Modern Authentication on-premises** — Native support via ADFS 2019+ without additional connectors
+- **DocParser replaces Oracle OIT** — Built-in document parsing without Oracle Outside In Technology dependency
+- **Scale improvements** — Supports up to 256 GB RAM and 48 CPU cores per server
+- **Feature Flighting** — Microsoft can remotely enable/disable features without CU deployment
+- **Improved search infrastructure** — Upgraded Big Funnel search engine
 
 ### Upgrade Paths
 
-| Source Version | Path to Exchange SE |
-|:---|:---|
-| Exchange Server 2019 | In-place upgrade (same server) |
-| Exchange Server 2016 | Cross-version upgrade (new server, then mailbox move) |
-| Exchange Server 2013 | Cross-version upgrade (new server, then mailbox move) |
+| Source Version | Path to Exchange SE | In-Place? |
+|:---|:---|:---:|
+| Exchange Server 2019 CU14 or CU15 | Direct in-place upgrade to Exchange SE | ✅ Yes |
+| Exchange Server 2019 (older CU) | Update to CU14/CU15 first, then in-place upgrade to SE | ✅ Yes (2 steps) |
+| Exchange Server 2016 | Install Exchange SE on new server, move mailboxes | ❌ No |
+| Exchange Server 2013 | Install Exchange SE on new server, move mailboxes | ❌ No |
 
 {: .important }
-You cannot perform an in-place upgrade directly from Exchange 2016 to Exchange SE. A new Exchange SE server must be installed in the existing organization, then mailboxes moved.
+Exchange 2016 **cannot** upgrade in-place to Exchange SE. You must: (1) deploy a new Exchange SE server into the existing org, (2) move mailboxes to the new server, then (3) decommission Exchange 2016. There is **no direct path** from Exchange 2016 to Exchange SE — an intermediate Exchange 2019 step is optional but not required if deploying Exchange SE fresh.
+
+### Exchange SE System Requirements
+
+| Component | Requirement |
+|:---|:---|
+| Operating System | Windows Server 2022 (recommended) or Windows Server 2019 |
+| Windows Server Core | Supported (Exchange SE first version to support this) |
+| RAM | 128 GB minimum recommended; up to 256 GB supported |
+| CPU | Up to 48 cores supported |
+| .NET Framework | .NET Framework 4.8 |
+| Active Directory | AD forest functional level 2016 or higher |
 
 ### Exchange SE Implementation Steps
 
-**For Exchange 2019 → Exchange SE (In-Place Upgrade):**
+**For Exchange 2019 CU14/CU15 → Exchange SE (In-Place Upgrade):**
 
-1. Verify server meets hardware and OS requirements
-2. Ensure Exchange 2019 is on the latest CU before upgrading
-3. Run Exchange SE setup with the `/Mode:Upgrade` switch
-4. Validate all services post-upgrade
-5. Update SSL certificates if needed
+1. Verify server meets hardware requirements (Windows Server 2019/2022, .NET 4.8)
+2. Confirm Exchange 2019 is on CU14 or CU15 (`Get-ExchangeDiagnosticInfo` or check EAC)
+3. Run Exchange SE setup in the organization (Setup.exe)
+4. At the Ready to Install screen, confirm `/Mode:Upgrade` is listed
+5. Validate all services and connectors post-upgrade
+6. Update SSL certificates if expiring
+
+```powershell
+# Verify current Exchange version before upgrading
+Get-Command exsetup.exe | ForEach {$_.FileVersionInfo}
+
+# After upgrade — confirm Exchange SE version
+Get-ExchangeDiagnosticInfo -Server $env:COMPUTERNAME -Process EdgeTransport -Component VariantConfiguration -Settings Identity
+```
 
 **For Exchange 2016 → Exchange SE (New Server):**
 
-1. Prepare new server with Windows Server 2022
-2. Install Exchange SE prerequisites
-3. Run Exchange SE setup to join existing Exchange organization
-4. Move mailbox databases to new server
-5. Configure client access namespaces on new server
+1. Prepare new server with Windows Server 2022 (optionally Windows Server Core)
+2. Install Exchange SE prerequisites (.NET 4.8, Visual C++ 2012/2013 redistributable, UCMA 4.0)
+3. Run Exchange SE setup to join the existing Exchange organization
+4. Configure client access namespaces to match existing URLs
+5. Move mailbox databases to new Exchange SE server
 6. Move mailboxes with `New-MoveRequest`
 
 ```powershell
-# Move all mailboxes from old server to new Exchange SE server
+# Move all mailboxes from Exchange 2016 to new Exchange SE server
 Get-Mailbox -Server OldEX2016 | New-MoveRequest -TargetDatabase "SE-DB01"
 
 # Monitor move requests
 Get-MoveRequest | Get-MoveRequestStatistics | 
     Select DisplayName, Status, PercentComplete
-
-# Reference: New-MoveRequest cmdlet
-# https://learn.microsoft.com/powershell/module/exchange/new-moverequest
 ```
 
 7. Update load balancer or DNS to point to Exchange SE
-8. Decommission old Exchange 2016 servers
+8. Decommission Exchange 2016 servers (follow Microsoft's decommission guide — do not remove AD objects manually)
 
 ---
 

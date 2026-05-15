@@ -84,28 +84,50 @@ graph LR
 
 ## Use Case 3: On-Premises Modernization (Exchange Server SE)
 
-The **On-Premises** strategy is for organizations that must maintain data sovereignty due to strict regulatory or data residency requirements. ([Exchange Server SE](https://learn.microsoft.com/en-us/exchange))
+The **On-Premises** strategy is for organizations that must maintain data sovereignty due to strict regulatory or data residency requirements. ([Exchange Server SE new features](https://learn.microsoft.com/en-us/exchange/new-features/new-features))
+
+Exchange Server SE was released **June 11, 2025**. Its RTM build is code-equivalent to Exchange Server 2019 CU15. Organizations running Exchange 2019 CU14 or CU15 can perform an **in-place upgrade** on existing hardware.
+
+### Upgrade Path Diagram
+
+```mermaid
+flowchart LR
+    EX2016["Exchange Server 2016\n(EOL Oct 2025)"]
+    EX2019old["Exchange Server 2019\n(CU13 or older)"]
+    EX2019cu["Exchange Server 2019\nCU14 / CU15"]
+    EXSE["Exchange Server SE\n(Released Jun 2025)"]
+    Cloud["Microsoft 365 /\nExchange Online"]
+
+    EX2016 -->|"New server deploy\n(no in-place)"| EXSE
+    EX2016 -->|"Recommended\nmigration"| Cloud
+    EX2019old -->|"Update CU"| EX2019cu
+    EX2019cu -->|"In-place upgrade\n(same hardware)"| EXSE
+    EX2019cu -->|"Migrate"| Cloud
+```
+
+### High Availability Architecture
 
 ```mermaid
 graph TD
     subgraph Primary["Primary Datacenter"]
         LB1[Load Balancer]
-        EXSE1[Exchange SE Server 1]
-        EXSE2[Exchange SE Server 2]
+        EXSE1[Exchange SE Server 1\nWindows Server 2022]
+        EXSE2[Exchange SE Server 2\nWindows Server 2022]
         DAG[(Database Availability Group)]
     end
     subgraph Secondary["Secondary Datacenter - DR"]
-        EXSE3[Exchange SE Server 3]
+        EXSE3[Exchange SE Server 3\nPassive DR Node]
     end
     Internet((Internet)) --> LB1
     LB1 --> EXSE1
     LB1 --> EXSE2
     EXSE1 <--> DAG
     EXSE2 <--> DAG
-    DAG -.->|Continuous Replication| EXSE3
+    DAG -.->|"Continuous Replication\n(log shipping)"| EXSE3
 ```
 
 ### Key Components:
 - **Database Availability Group (DAG):** Provides high availability and continuous replication of mailbox databases.
-- **Exchange Server SE:** The subscription-based successor to Exchange 2019 , ensuring a supported on-premises environment.
+- **Exchange Server SE:** Released June 2025; subscription-based successor to Exchange 2019 with in-place upgrade from CU14/CU15. Supports Windows Server Core, enforces TLS 1.2/1.3, and includes modern authentication via ADFS.
 - **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability.
+- **Windows Server 2022:** Required OS for new Exchange SE deployments; Windows Server Core now supported for the first time.

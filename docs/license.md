@@ -170,16 +170,20 @@ For most organizations **without SA**, migrating to Exchange Online or Microsoft
 
 ## Exchange Server SE Licensing
 
-Exchange Server Subscription Edition (SE) replaces the perpetual model with an **annual subscription**.
+Exchange Server Subscription Edition (SE) was released **June 11, 2025**, replacing the perpetual licensing model with an **annual subscription**. Exchange SE RTM is code-equivalent to Exchange Server 2019 CU15.
+
+{: .highlight }
+**Key licensing advantage of Exchange SE over Exchange 2019:** Subscription inherently includes upgrade rights — no separate Software Assurance purchase required to stay current.
 
 ### How Exchange SE Licensing Works
 
 | Component | Description |
 |:---|:---|
-| Server subscription | Annual fee per Exchange SE server instance |
-| User/Device CAL subscription | Annual fee per user or device accessing Exchange SE |
-| SA not required | Subscription inherently includes upgrade rights |
+| Server subscription | Annual fee per Exchange SE server instance (~$12,000/server/year est.) |
+| User/Device CAL subscription | Annual fee per user or device accessing Exchange SE (~$40/user/year est.) |
+| SA not required | Subscription inherently includes upgrade rights to future versions |
 | Downgrade rights | Subscription licenses include rights to run previous versions |
+| Windows Server Core | Exchange SE supports deployment on Windows Server Core (no GUI) |
 
 ### Exchange SE vs. Legacy CAL Comparison
 
@@ -190,9 +194,22 @@ Exchange Server Subscription Edition (SE) replaces the perpetual model with an *
 | Version lock | Fixed to purchased version | Always current version |
 | Cold DR server | Requires additional license | Included per Microsoft terms |
 | Budget predictability | Variable (hardware refresh cycles) | Predictable annual cost |
+| TLS enforcement | Configurable | TLS 1.2/1.3 enforced by default |
+| Modern Auth on-premises | Optional configuration | Native via ADFS 2019+ |
 
 {: .note }
 Organizations with active Software Assurance on Exchange 2019 may be eligible for step-up or migration credits to Exchange SE. Confirm entitlements with your Microsoft licensing partner.
+
+### Exchange SE In-Place Upgrade Eligibility
+
+| Current State | Upgrade Path |
+|:---|:---|
+| Exchange 2019 CU14 or CU15 | In-place upgrade to Exchange SE on same hardware |
+| Exchange 2019 CU13 or older | Update to CU14/CU15 first, then in-place upgrade |
+| Exchange 2016 | Deploy Exchange SE on new server; move mailboxes (no in-place path) |
+
+{: .important }
+There is **no direct in-place upgrade from Exchange 2016 to Exchange SE**. Exchange 2016 customers must deploy a new Exchange SE server and migrate mailboxes.
 
 ---
 
