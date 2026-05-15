@@ -17,7 +17,12 @@
       "Bash(chmod +x /tmp/remove_broken_links.sh)",
       "Bash(/tmp/remove_broken_links.sh)",
       "Bash(awk '{print $2}')",
-      "Bash(awk '{print $9, \"-\", $5}')"
+      "Bash(awk '{print $9, \"-\", $5}')",
+      "Bash(curl -s -o /dev/null -w \"Homepage Status: %{http_code}\\\\n\" \"https://dekbacom.github.io/Exchange-Server-EOS/\")",
+      "Bash(curl -s -o /dev/null -w \"Checklist Page Status: %{http_code}\\\\n\" \"https://dekbacom.github.io/Exchange-Server-EOS/docs/checklist.html\")",
+      "Bash(curl -s -o /dev/null -w \"Architecture Page Status: %{http_code}\\\\n\" \"https://dekbacom.github.io/Exchange-Server-EOS/docs/architecture.html\")",
+      "Bash(curl -s -o /dev/null -w \"TCO Page Status: %{http_code}\\\\n\" \"https://dekbacom.github.io/Exchange-Server-EOS/docs/tco.html\")",
+      "Bash(curl -s -o /dev/null -w \"Risk Page Status: %{http_code}\\\\n\" \"https://dekbacom.github.io/Exchange-Server-EOS/docs/risk.html\")"
     ]
   }
 }
