@@ -1,0 +1,10 @@
+title: Exchange Server End of Support
+description: Information about the end of support for Microsoft Exchange Server.
+theme: jekyll-theme-primer
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-github-metadata
+
+# For github-theme-primer, we can also use remote_theme
+# remote_theme: pages-themes/primer
