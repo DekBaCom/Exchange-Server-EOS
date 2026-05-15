@@ -41,6 +41,11 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
         <div class="slider-container">
           <div class="slider-tooltip" id="costPerFteTooltip">$80,000</div>
           <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000" class="slider-with-tooltip">
+          <div class="slider-progress-bar">
+            <div class="slider-progress-fill" id="costPerFteProgressFill" style="width: 33.33%;">
+              <span class="progress-label">$<span id="costPerFteProgressValue">80,000</span> / $200,000</span>
+            </div>
+          </div>
         </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
           $<span id="costPerFteDisplay">80,000</span> / year
@@ -226,17 +231,23 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
   }
 }
 
-// Update progress bar for users slider
+// Update progress bars for both sliders
 function updateProgressBar() {
-  const usersInput = document.getElementById('users');
-  const progressFill = document.getElementById('usersProgressFill');
-  const progressValue = document.getElementById('usersProgressValue');
+  updateSliderProgressBar('users', 'usersProgressFill', 'usersProgressValue', false);
+  updateSliderProgressBar('costPerFte', 'costPerFteProgressFill', 'costPerFteProgressValue', true);
+}
+
+// Helper to update individual progress bar
+function updateSliderProgressBar(sliderId, fillId, valueId, isCurrency) {
+  const slider = document.getElementById(sliderId);
+  const progressFill = document.getElementById(fillId);
+  const progressValue = document.getElementById(valueId);
   
-  if (!usersInput || !progressFill || !progressValue) return;
+  if (!slider || !progressFill || !progressValue) return;
   
-  const min = parseInt(usersInput.min);
-  const max = parseInt(usersInput.max);
-  const value = parseInt(usersInput.value);
+  const min = parseInt(slider.min);
+  const max = parseInt(slider.max);
+  const value = parseInt(slider.value);
   
   // Calculate percentage (0-100)
   const percentage = ((value - min) / (max - min)) * 100;
@@ -245,7 +256,11 @@ function updateProgressBar() {
   progressFill.style.width = percentage + '%';
   
   // Update progress value text
-  progressValue.textContent = value.toLocaleString();
+  if (isCurrency) {
+    progressValue.textContent = value.toLocaleString();
+  } else {
+    progressValue.textContent = value.toLocaleString();
+  }
 }
 
 // Ensure DOM is ready
