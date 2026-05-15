@@ -8,8 +8,22 @@ description: "Phased migration checklist covering assessment, planning, implemen
 # Migration Readiness Checklist
 {: .no_toc }
 
-Use this phased checklist to guide your Exchange Server migration project from initial assessment through post-migration cleanup.
+Use this phased checklist to guide your Exchange Server migration project from initial assessment through post-migration cleanup. Click any checkbox to track progress — your selections are saved automatically in the browser.
 {: .fs-6 .fw-300 }
+
+<div class="checklist-toolbar" id="checklistToolbar">
+  <div class="checklist-progress-wrap">
+    <span class="checklist-progress-text" id="checklistProgress">Loading checklist…</span>
+    <div class="checklist-bar-track">
+      <div class="checklist-bar-fill" id="checklistBarFill" style="width:0%"></div>
+    </div>
+  </div>
+  <div class="checklist-btn-wrap">
+    <button class="checklist-btn" onclick="resetChecklist()">↺ Reset</button>
+    <button class="checklist-btn checklist-btn-csv" onclick="exportChecklistCSV()">📥 Export CSV</button>
+    <button class="checklist-btn checklist-btn-excel" onclick="exportChecklistExcel()">📊 Export Excel</button>
+  </div>
+</div>
 
 <details open markdown="block">
   <summary>Table of contents</summary>
@@ -216,3 +230,125 @@ Do not begin technical implementation until Phase 2 is complete. Decisions here 
 
 {: .note }
 Keep legacy Exchange servers accessible (but offline or isolated) for at least 30 days post-migration to handle edge cases such as delayed mail delivery, legal hold review, or rollback needs.
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = 'eos-checklist-v1';
+
+  function init() {
+    var checkboxes = Array.from(document.querySelectorAll('input.task-list-item-checkbox'));
+    if (!checkboxes.length) return;
+
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+
+    checkboxes.forEach(function (cb, i) {
+      cb.removeAttribute('disabled');
+      if (saved[i]) cb.checked = true;
+      cb.addEventListener('change', function () {
+        saveState(checkboxes);
+        updateProgress(checkboxes);
+      });
+    });
+
+    updateProgress(checkboxes);
+  }
+
+  function saveState(checkboxes) {
+    var state = {};
+    checkboxes.forEach(function (cb, i) { if (cb.checked) state[i] = 1; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function updateProgress(checkboxes) {
+    var total = checkboxes.length;
+    var done = checkboxes.filter(function (cb) { return cb.checked; }).length;
+    var pct = total ? Math.round(done / total * 100) : 0;
+    var textEl = document.getElementById('checklistProgress');
+    var fillEl = document.getElementById('checklistBarFill');
+    if (textEl) textEl.textContent = done + ' / ' + total + ' completed (' + pct + '%)';
+    if (fillEl) fillEl.style.width = pct + '%';
+  }
+
+  function getItemText(li) {
+    return Array.from(li.childNodes)
+      .filter(function (n) { return n.nodeType === 3; })
+      .map(function (n) { return n.textContent.trim(); })
+      .filter(function (t) { return t.length > 0; })
+      .join(' ');
+  }
+
+  function buildRows() {
+    var rows = [['Phase', 'Section', 'Task', 'Status']];
+    var currentPhase = '';
+    var currentSection = '';
+    var els = Array.from(document.querySelectorAll('h2, h3, li.task-list-item'));
+    els.forEach(function (el) {
+      if (el.closest('details')) return;
+      var tag = el.tagName;
+      if (tag === 'H2') {
+        currentPhase = el.textContent.replace(/\s+/g, ' ').trim();
+      } else if (tag === 'H3') {
+        currentSection = el.textContent.replace(/\s+/g, ' ').trim();
+      } else {
+        var cb = el.querySelector(':scope > input[type="checkbox"]');
+        if (!cb) return;
+        var text = getItemText(el);
+        rows.push([currentPhase, currentSection, text, cb.checked ? 'Completed' : 'Pending']);
+      }
+    });
+    return rows;
+  }
+
+  window.resetChecklist = function () {
+    if (!confirm('Reset all checkboxes to unchecked?')) return;
+    var checkboxes = Array.from(document.querySelectorAll('input.task-list-item-checkbox'));
+    checkboxes.forEach(function (cb) { cb.checked = false; });
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    updateProgress(checkboxes);
+  };
+
+  window.exportChecklistCSV = function () {
+    var rows = buildRows();
+    var csv = rows.map(function (r) {
+      return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
+    }).join('\r\n');
+    var bom = '﻿'; // UTF-8 BOM for Excel compatibility
+    var blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Exchange-Migration-Checklist.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  window.exportChecklistExcel = function () {
+    if (typeof XLSX === 'undefined') {
+      alert('Excel library not loaded — please try Export CSV instead.');
+      return;
+    }
+    var rows = buildRows();
+    var ws = XLSX.utils.aoa_to_sheet(rows);
+    ws['!cols'] = [{ wch: 32 }, { wch: 26 }, { wch: 65 }, { wch: 12 }];
+    // Bold header row
+    var headerRange = XLSX.utils.decode_range(ws['!ref']);
+    for (var c = headerRange.s.c; c <= headerRange.e.c; c++) {
+      var cellAddr = XLSX.utils.encode_cell({ r: 0, c: c });
+      if (ws[cellAddr]) {
+        ws[cellAddr].s = { font: { bold: true }, fill: { fgColor: { rgb: 'D0E4F7' } } };
+      }
+    }
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Migration Checklist');
+    XLSX.writeFile(wb, 'Exchange-Migration-Checklist.xlsx');
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
