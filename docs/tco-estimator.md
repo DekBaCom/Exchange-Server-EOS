@@ -166,12 +166,31 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="{{ '/assets/js/tco-estimator.js' | relative_url }}"></script>
 <script>
-// Format display values as user adjusts sliders
-document.getElementById('users').addEventListener('input', function(e) {
-  document.getElementById('usersDisplay').textContent = parseInt(e.target.value).toLocaleString();
-});
+// Update display values as user adjusts sliders
+function updateDisplayValues() {
+  const usersInput = document.getElementById('users');
+  const costPerFteInput = document.getElementById('costPerFte');
+  const usersDisplay = document.getElementById('usersDisplay');
+  const costPerFteDisplay = document.getElementById('costPerFteDisplay');
 
-document.getElementById('costPerFte').addEventListener('input', function(e) {
-  document.getElementById('costPerFteDisplay').textContent = parseInt(e.target.value).toLocaleString();
-});
+  if (usersInput && usersDisplay) {
+    usersDisplay.textContent = parseInt(usersInput.value).toLocaleString();
+  }
+  if (costPerFteInput && costPerFteDisplay) {
+    costPerFteDisplay.textContent = parseInt(costPerFteInput.value).toLocaleString();
+  }
+}
+
+// Ensure DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDisplayValues();
+    document.getElementById('users').addEventListener('input', updateDisplayValues);
+    document.getElementById('costPerFte').addEventListener('input', updateDisplayValues);
+  });
+} else {
+  updateDisplayValues();
+  document.getElementById('users').addEventListener('input', updateDisplayValues);
+  document.getElementById('costPerFte').addEventListener('input', updateDisplayValues);
+}
 </script>
