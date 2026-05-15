@@ -21,6 +21,9 @@ search:
 nav_sort: order
 heading_anchors: true
 
+mermaid:
+  version: "10.9.0"
+
 aux_links:
   "View on GitHub":
     - "https://github.com/DekBaCom/Exchange-Server-EOS"
