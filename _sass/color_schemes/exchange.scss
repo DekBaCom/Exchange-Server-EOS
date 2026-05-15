@@ -1,0 +1,32 @@
+// Exchange Server EOS — Microsoft Fluent Blue Color Scheme
+// ─────────────────────────────────────────────────────────
+
+// Brand palette
+$blue-dk-300: #003366;
+$blue-dk-200: #004e8c;
+$blue-dk-100: #0078d4; // Microsoft Blue
+$blue-100: #2b88d8;
+$blue-200: #71afe5;
+$blue-300: #cce4f6;
+$blue-000: #eff6ff;
+
+// Semantic overrides
+$link-color: $blue-dk-100;
+$btn-primary-color: $blue-dk-100;
+$base-button-color: $blue-dk-100;
+
+// Backgrounds
+$body-background-color: #ffffff;
+$sidebar-color: #f3f4f6;
+$search-background-color: #ffffff;
+$table-background-color: #f9fafb;
+$code-background-color: #1e1e2e;
+$feedback-color: #eaecef;
+
+// Typography
+$body-heading-color: #1b2a3b;
+$body-text-color: #374151;
+$nav-child-link-color: #5a6270;
+
+// Borders
+$border-color: #e5e7eb;

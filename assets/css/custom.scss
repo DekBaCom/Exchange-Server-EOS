@@ -1,0 +1,215 @@
+---
+---
+@charset "utf-8";
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║ Exchange Server EOS — High-Impact Modern Theme ║
+   ║ Glassmorphism · Advanced Interactivity · Microsoft Blue ║
+   ╚══════════════════════════════════════════════════════════╝ */
+
+:root {
+  /* Microsoft Fluent Blue Palette */
+  --blue-50: #f0f7ff;
+  --blue-100: #e0effe;
+  --blue-500: #0078d4;
+  --blue-600: #005a9e;
+  --blue-700: #004578;
+  
+  /* Modern Dark/Light Neutrals */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Accent Radii */
+  --r-lg: 16px;
+  --r-xl: 24px;
+  
+  /* Dynamic Shadows */
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(0, 120, 212, 0.3);
+}
+
+/* ── Base Interactivity ─────────────────────────────────── */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Modern Hero Section ────────────────────────────────── */
+.hero {
+  position: relative;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,120,212,0.15) 0%, var(--slate-900) 100%);
+  color: #fff;
+  padding: 5rem 2rem;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  margin: 1rem 0 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #fff 0%, var(--blue-100) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem !important;
+  letter-spacing: -0.04em !important;
+  border: none !important;
+}
+
+.hero-sub {
+  font-size: 1.25rem;
+  color: var(--slate-300);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Interactive Path Wizard ───────────────────────────── */
+/* (Styles for wizard would go here) */
+
+/* ── Section Grid ───────────────────────────────────────── */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.section-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-500);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .section-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .section-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Animated Stats ────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  border: 1px solid var(--slate-100);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.stat-value { font-size: 2.5rem; font-weight: 800; color: var(--blue-600); display: block; }
+.stat-label { font-size: 0.875rem; color: var(--slate-500); font-weight: 600; text-transform: uppercase; }
+
+/* ── TCO Calculator ────────────────────────────────────── */
+.calc-box {
+  background: var(--slate-50);
+  padding: 2.5rem;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--slate-200);
+  margin: 3rem 0;
+}
+
+.calc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--slate-200);
+  border-radius: 4px;
+  margin: 2rem 0;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--blue-500);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+}
+
+/* ── Checklist Interactivity ───────────────────────────── */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.checklist-item:hover { background: var(--blue-50); }
+.checklist-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue-500);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem !important; }
+  .wizard-opts, .stats-grid { grid-template-columns: 1fr; }
+}
