@@ -73,21 +73,21 @@ Migrate users in batches while maintaining coexistence. Works with Exchange 2003
 ---
 
 #### Hybrid Migration (Recommended for 150+ Mailboxes)
-Full hybrid coexistence using the Exchange Hybrid Configuration Wizard ([Hybrid Configuration Wizard](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-configuration-wizard)). Users on either side can see each other's calendar and free/busy ([Free/busy sharing](https://microsoft.com/docs/exchange/hybrid-deployment/free-busy-in-hybrid-deployments)).
+Full hybrid coexistence using the Exchange Hybrid Configuration Wizard ([Hybrid Configuration Wizard](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard)). Users on either side can see each other's calendar and free/busy ([Free/busy sharing](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/free-busy-in-hybrid-deployments)).
 
 **Prerequisites:**
 - Exchange Server 2016 CU23+ or Exchange Server 2019 CU13+
-- Entra ID Connect (Azure AD Connect) deployed and syncing ([Entra ID hybrid identity](https://microsoft.com/docs/entra/identity/hybrid/whatis-hybrid-identity))
+- Entra ID Connect (Azure AD Connect) deployed and syncing ([Entra ID hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity))
 - Valid public SSL certificate covering hybrid namespaces
 - Outbound HTTPS to Microsoft 365 endpoints
 - MX record can remain on-premises during migration
 
 **Process:**
-1. Run the **Hybrid Configuration Wizard** (HCW) from Exchange Admin Center ([HCW guide](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-configuration-wizard))
-2. Configure Hybrid Agent (modern hybrid) or direct publishing ([Hybrid Agent](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-agent))
+1. Run the **Hybrid Configuration Wizard** (HCW) from Exchange Admin Center ([HCW guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard))
+2. Configure Hybrid Agent (modern hybrid) or direct publishing ([Hybrid Agent](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent))
 3. Migrate mailboxes using `New-MigrationBatch` in Exchange Online PowerShell ([PowerShell cmdlet reference](https://learn.microsoft.com/powershell/module/exchange/new-migrationbatch))
 4. Validate each batch before proceeding
-5. After all users are migrated, update MX and decommission on-premises Exchange ([Hybrid mail flow](https://microsoft.com/docs/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
+5. After all users are migrated, update MX and decommission on-premises Exchange ([Hybrid mail flow](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
 
 ```powershell
 # Example: Create a migration batch in Exchange Online PowerShell
@@ -112,14 +112,14 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
 ### Microsoft 365 Implementation Checklist
 
 1. **Tenant preparation**
-   - Verify domains in Microsoft 365 admin center ([Domain verification](https://microsoft.com/docs/microsoft-365/admin/setup/add-domain))
-   - Configure Entra ID Connect for identity sync ([Entra ID Connect](https://microsoft.com/docs/entra/identity/hybrid/whatis-hybrid-identity))
-   - Assign Exchange Online licenses to users ([Exchange Online service description](https://microsoft.com/docs/office365/servicedescriptions/exchange-online-service-description))
+   - Verify domains in Microsoft 365 admin center ([Domain verification](https://learn.microsoft.com/en-us/microsoft-365/admin/setup/add-domain))
+   - Configure Entra ID Connect for identity sync ([Entra ID Connect](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity))
+   - Assign Exchange Online licenses to users ([Exchange Online service description](https://learn.microsoft.com/en-us/exchange/servicedescriptions/exchange-online-service-description))
 
 2. **Hybrid configuration** (if using hybrid migration)
-   - Download and run the Hybrid Configuration Wizard ([HCW guide](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-configuration-wizard))
-   - Configure inbound and outbound hybrid mail flow connectors ([Mail flow](https://microsoft.com/docs/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
-   - Validate free/busy sharing between on-premises and cloud ([Free/busy](https://microsoft.com/docs/exchange/hybrid-deployment/free-busy-in-hybrid-deployments))
+   - Download and run the Hybrid Configuration Wizard ([HCW guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-configuration-wizard))
+   - Configure inbound and outbound hybrid mail flow connectors ([Mail flow](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments))
+   - Validate free/busy sharing between on-premises and cloud ([Free/busy](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/free-busy-in-hybrid-deployments))
 
 3. **Migration execution**
    - Migrate pilot group first (IT staff)
@@ -133,7 +133,7 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
    - Set DMARC policy to `p=quarantine` or `p=reject`
 
 5. **Decommission**
-   - Follow Microsoft's published Exchange Server decommission guide ([Decommissioning](https://microsoft.com/docs/exchange/decommissioning))
+   - Follow Microsoft's published Exchange Server decommission guide ([Decommissioning](https://learn.microsoft.com/en-us/exchange/decommissioning))
    - Do not delete Exchange server objects from Active Directory directly
 
 ---
@@ -141,12 +141,12 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
 ## Option 2 — Exchange Server Subscription Edition
 {: #option-2-exchange-server-subscription-edition }
 
-Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE](https://microsoft.com/docs/exchange)). It replaces the perpetual-license model with an annual subscription. It provides a supported upgrade path from Exchange 2016/2019 without a full reimplementation.
+Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE](https://learn.microsoft.com/en-us/exchange)). It replaces the perpetual-license model with an annual subscription. It provides a supported upgrade path from Exchange 2016/2019 without a full reimplementation.
 
 ### Key Characteristics
 
-- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses ([Exchange licensing](https://microsoft.com/docs/exchange/licensing))
-- **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation ([Upgrade paths](https://microsoft.com/docs/exchange/upgrades))
+- **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses ([Exchange licensing](https://learn.microsoft.com/en-us/exchange/licensing))
+- **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation ([Upgrade paths](https://learn.microsoft.com/en-us/exchange/upgrades))
 - **Feature parity** — Includes all Exchange 2019 features plus ongoing updates
 - **Support lifecycle** — Extended support through 2030 or later (verify with Microsoft)
 
@@ -200,7 +200,7 @@ Get-MoveRequest | Get-MoveRequestStatistics |
 ## Option 3 — Hybrid Deployment
 {: #option-3-hybrid-deployment }
 
-A long-term hybrid deployment maintains Exchange servers on-premises while hosting a subset of users in Exchange Online ([Hybrid deployment guide](https://microsoft.com/docs/exchange/hybrid-deployment)). This is not the same as a hybrid migration (which is temporary coexistence while migrating). Long-term hybrid suits organizations with:
+A long-term hybrid deployment maintains Exchange servers on-premises while hosting a subset of users in Exchange Online ([Hybrid deployment guide](https://learn.microsoft.com/en-us/exchange/hybrid-deployment)). This is not the same as a hybrid migration (which is temporary coexistence while migrating). Long-term hybrid suits organizations with:
 
 - Regulatory requirements keeping specific mailboxes on-premises
 - Subsidiaries or departments with different compliance profiles
@@ -218,7 +218,7 @@ On-Premises Active Directory ←→ Entra ID Connect ←→ Microsoft Entra ID
 ### Long-Term Hybrid Requirements
 
 - At minimum one Exchange server on-premises (for hybrid management)
-- Exchange Hybrid License ([Hybrid license](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-agent-and-licensing)) (free from Microsoft for a single Exchange SE server used only for hybrid management)
+- Exchange Hybrid License ([Hybrid license](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent-and-licensing)) (free from Microsoft for a single Exchange SE server used only for hybrid management)
 - Entra ID Connect running and healthy
 - Valid SSL certificate for hybrid namespaces
 - Ongoing maintenance of on-premises Exchange server

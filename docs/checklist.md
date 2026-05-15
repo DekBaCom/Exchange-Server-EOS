@@ -26,12 +26,12 @@ Complete this phase before choosing a migration path. Decisions made here drive 
 
 ### Server Inventory
 
-- [ ] Document all Exchange Server versions and editions in use ([Exchange Server supported configurations](https://microsoft.com/docs/exchange))
-- [ ] Record server hardware specifications (CPU, RAM, disk, network) ([Hardware requirements](https://microsoft.com/docs/exchange/systemrequirements))
-- [ ] Identify server roles (Mailbox, Edge Transport, DAG membership) ([Database Availability Group management](https://microsoft.com/docs/exchange/architecture/managing-database-availability-groups))
+- [ ] Document all Exchange Server versions and editions in use ([Exchange Server supported configurations](https://learn.microsoft.com/en-us/exchange))
+- [ ] Record server hardware specifications (CPU, RAM, disk, network) ([Hardware requirements](https://learn.microsoft.com/en-us/exchange/systemrequirements))
+- [ ] Identify server roles (Mailbox, Edge Transport, DAG membership) ([Database Availability Group management](https://learn.microsoft.com/en-us/exchange/architecture/managing-database-availability-groups))
 - [ ] Capture OS version and patch level for each server
-- [ ] List all installed Exchange Cumulative Updates (CUs) ([Exchange updates](https://microsoft.com/docs/exchange/updates))
-- [ ] Document Database Availability Group (DAG) topology ([DAG architecture](https://microsoft.com/docs/exchange/architecture/database-availability-groups))
+- [ ] List all installed Exchange Cumulative Updates (CUs) ([Exchange updates](https://learn.microsoft.com/en-us/exchange/updates))
+- [ ] Document Database Availability Group (DAG) topology ([DAG architecture](https://learn.microsoft.com/en-us/exchange/architecture/database-availability-groups))
 - [ ] Identify co-located workloads on Exchange servers
 
 ### Mailbox Audit
@@ -67,7 +67,7 @@ Complete this phase before choosing a migration path. Decisions made here drive 
 
 ### DNS & Certificates
 
-- [ ] Audit all Exchange-related DNS records (Autodiscover, MX, SPF, DKIM, DMARC) ([Autodiscover configuration](https://microsoft.com/docs/exchange/clients-and-mobile/exchange-autodiscover))
+- [ ] Audit all Exchange-related DNS records (Autodiscover, MX, SPF, DKIM, DMARC) ([Autodiscover configuration](https://learn.microsoft.com/en-us/exchange/clients-and-mobile/exchange-autodiscover))
 - [ ] Review SSL/TLS certificate expiry dates and subject alternative names (SANs)
 - [ ] Document certificate authority (CA) used — internal vs. public
 - [ ] Verify certificate coverage for all Exchange namespaces
@@ -200,7 +200,7 @@ Do not begin technical implementation until Phase 2 is complete. Decisions here 
 ### Decommissioning
 
 - [ ] Remove legacy Exchange servers from DAG (if applicable)
-- [ ] Uninstall Exchange from legacy servers following Microsoft guidance ([Decommissioning Exchange](https://microsoft.com/docs/exchange/decommissioning))
+- [ ] Uninstall Exchange from legacy servers following Microsoft guidance ([Decommissioning Exchange](https://learn.microsoft.com/en-us/exchange/decommissioning))
   - Note: Do not delete Exchange servers from AD without proper uninstall
 - [ ] Reclaim server hardware or decommission VMs
 - [ ] Remove or archive legacy Exchange backup jobs
