@@ -26,13 +26,11 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
           <div class="slider-tooltip" id="usersTooltip">500</div>
           <input type="range" id="users" min="50" max="5000" value="500" step="50" class="slider-with-tooltip">
           <div class="slider-progress-bar">
-            <div class="slider-progress-fill" id="usersProgressFill" style="width: 9%;">
-              <span class="progress-label"><span id="usersProgressValue">500</span> / 5,000</span>
-            </div>
+            <div class="slider-progress-fill" id="usersProgressFill" style="width: 9%;"></div>
           </div>
-        </div>
-        <div style="margin-top: 0.5rem; font-size: 1.1rem;">
-          <span id="usersDisplay">500</span> users
+          <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+            <span id="usersProgressValue">500</span> / 5,000 users
+          </div>
         </div>
       </div>
 
@@ -42,9 +40,10 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
           <div class="slider-tooltip" id="costPerFteTooltip">$80,000</div>
           <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000" class="slider-with-tooltip">
           <div class="slider-progress-bar">
-            <div class="slider-progress-fill" id="costPerFteProgressFill" style="width: 33.33%;">
-              <span class="progress-label">$<span id="costPerFteProgressValue">80,000</span> / $200,000</span>
-            </div>
+            <div class="slider-progress-fill" id="costPerFteProgressFill" style="width: 33.33%;"></div>
+          </div>
+          <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+            $<span id="costPerFteProgressValue">80,000</span> / $200,000
           </div>
         </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
