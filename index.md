@@ -78,17 +78,83 @@ permalink: /
 </div>
 
 <div class="calc-box">
-  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
     <h3 style="margin: 0; color: var(--slate-900);">TCO Estimator</h3>
-    <span style="font-size: 1.5rem; font-weight: 800; color: var(--blue-600);"><span id="calc-user-val">500</span> Users</span>
+    <span style="font-size: 1.4rem; font-weight: 800; color: var(--blue-600);"><span id="calc-user-val">500</span> Users</span>
   </div>
-  <input type="range" class="calc-slider" min="10" max="5000" step="10" value="500">
+  <p style="font-size: 0.85rem; color: var(--slate-500); margin: 0 0 0.75rem;">Drag to set user count — see 5-year cost for all migration paths</p>
+  <input type="range" class="calc-slider" id="calc-slider" min="50" max="5000" step="50" value="500">
+
+  <div class="calc-mini-cards" id="calcCards">
+    <div class="calc-mini-card" style="border-left: 4px solid #dc2626;">
+      <div class="calc-mini-name">On-Premises</div>
+      <div class="calc-mini-value" id="calc-onprem">$453,400</div>
+    </div>
+    <div class="calc-mini-card" style="border-left: 4px solid #16a34a;">
+      <div class="calc-mini-name">Exchange Online P2</div>
+      <div class="calc-mini-value" id="calc-eop2">$399,000</div>
+    </div>
+    <div class="calc-mini-card" style="border-left: 4px solid #2563eb;">
+      <div class="calc-mini-name">Microsoft 365 E3</div>
+      <div class="calc-mini-value" id="calc-m365">$1,263,000</div>
+    </div>
+    <div class="calc-mini-card" style="border-left: 4px solid #d97706;">
+      <div class="calc-mini-name">Exchange SE</div>
+      <div class="calc-mini-value" id="calc-se">$665,000</div>
+    </div>
+  </div>
+
   <div style="text-align: center; margin-top: 1rem;">
-    <p style="color: var(--slate-500); margin: 0;">5-Year Total Cost of Ownership</p>
-    <h2 style="margin: 0.5rem 0; color: var(--blue-700); font-size: 3rem !important; border: none !important;" id="calc-result-val">$400,000</h2>
-    <a href="/Exchange-Server-EOS/{% link docs/tco.md %}" style="font-size: 0.8rem; font-weight: 700;">View Detailed TCO Analysis →</a>
+    <a href="/Exchange-Server-EOS/{% link docs/tco-estimator.md %}" style="font-size: 0.9rem; font-weight: 700; color: var(--blue-600);">Open Full TCO Estimator with Charts & Export →</a>
   </div>
 </div>
+
+<script>
+(function() {
+  var slider = document.getElementById('calc-slider');
+  var userVal = document.getElementById('calc-user-val');
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function calcTCO(users) {
+    var fte = 80000;
+    // On-Premises
+    var op1 = 40000 + 12000 + 1400 + 76*users + 8000 + 12000 + fte*0.2 + 18000 + 6000;
+    var op2 = 8000 + 12000 + fte*0.2 + 18000 + 4000;
+    var onprem = op1 + op2 * 4;
+    // Exchange Online P2
+    var ep1 = 8*users*12 + 2*users*12 + 40000 + fte*0.25 + 5000;
+    var ep2 = 8*users*12 + 2*users*12 + fte*0.25 + 1000;
+    var eop2 = ep1 + ep2 * 4;
+    // M365 E3
+    var mp1 = 36*users*12 + 50000 + fte*0.25 + 20000 + 10000;
+    var mp2 = 36*users*12 + fte*0.25 + 5000 + 2000;
+    var m365 = mp1 + mp2 * 4;
+    // Exchange SE
+    var sp1 = 40000 + 12000 + 24000 + 40*users + 8000 + 10000 + fte*0.25 + 18000 + 8000 + 25000;
+    var sp2 = 5000 + 24000 + 40*users + 8000 + 10000 + fte*0.25 + 18000 + 5000;
+    var se = sp1 + sp2 * 4;
+    return { onprem: onprem, eop2: eop2, m365: m365, se: se };
+  }
+
+  function update() {
+    var users = parseInt(slider.value);
+    userVal.textContent = users.toLocaleString('en-US');
+    var t = calcTCO(users);
+    document.getElementById('calc-onprem').textContent = fmt(t.onprem);
+    document.getElementById('calc-eop2').textContent   = fmt(t.eop2);
+    document.getElementById('calc-m365').textContent   = fmt(t.m365);
+    document.getElementById('calc-se').textContent     = fmt(t.se);
+  }
+
+  if (slider) {
+    slider.addEventListener('input', update);
+    update();
+  }
+})();
+</script>
 
 ---
 
