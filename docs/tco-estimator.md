@@ -25,6 +25,11 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
         <div class="slider-container">
           <div class="slider-tooltip" id="usersTooltip">500</div>
           <input type="range" id="users" min="50" max="5000" value="500" step="50" class="slider-with-tooltip">
+          <div class="slider-progress-bar">
+            <div class="slider-progress-fill" id="usersProgressFill" style="width: 9%;">
+              <span class="progress-label"><span id="usersProgressValue">500</span> / 5,000</span>
+            </div>
+          </div>
         </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
           <span id="usersDisplay">500</span> users
@@ -187,6 +192,7 @@ function updateDisplayValues() {
   }
   
   updateSliderTooltips();
+  updateProgressBar();
 }
 
 // Update slider tooltip positions and values dynamically
@@ -218,6 +224,28 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
   } else {
     tooltip.textContent = value.toLocaleString();
   }
+}
+
+// Update progress bar for users slider
+function updateProgressBar() {
+  const usersInput = document.getElementById('users');
+  const progressFill = document.getElementById('usersProgressFill');
+  const progressValue = document.getElementById('usersProgressValue');
+  
+  if (!usersInput || !progressFill || !progressValue) return;
+  
+  const min = parseInt(usersInput.min);
+  const max = parseInt(usersInput.max);
+  const value = parseInt(usersInput.value);
+  
+  // Calculate percentage (0-100)
+  const percentage = ((value - min) / (max - min)) * 100;
+  
+  // Update progress bar width
+  progressFill.style.width = percentage + '%';
+  
+  // Update progress value text
+  progressValue.textContent = value.toLocaleString();
 }
 
 // Ensure DOM is ready
