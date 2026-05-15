@@ -16,7 +16,7 @@ permalink: /
     Migrate now to secure your organization — a comprehensive guide for IT decision-makers.
   </p>
   <div style="display: flex; gap: 1rem;">
-    <a href="{% link docs/checklist.md %}" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700;">Get Started</a>
+    <a href="/Exchange-Server-EOS/{% link docs/checklist.md %}" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700;">Get Started</a>
     <a href="#wizard" class="btn" style="color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.8rem 2rem; border-radius: 50px;">Path Wizard</a>
   </div>
 </div>
@@ -64,7 +64,7 @@ permalink: /
   <div class="wizard-step" id="q2-cloud">
     <p class="wizard-q">Cloud Recommendation</p>
     <p style="color: var(--slate-300); margin-bottom: 2rem;">Migrating to <strong>Microsoft 365</strong> offers the lowest TCO and best security posture.</p>
-    <a href="{% link docs/implement.md %}#option-1-microsoft-365-exchange-online" class="btn btn-primary">View Cloud Guide</a>
+    <a href="/Exchange-Server-EOS/{% link docs/implement.md %}#option-1-microsoft-365-exchange-online" class="btn btn-primary">View Cloud Guide</a>
     <button class="btn" style="color: #fff; margin-left: 1rem;" data-next="q1">Start Over</button>
   </div>
 
@@ -72,7 +72,7 @@ permalink: /
   <div class="wizard-step" id="q2-onprem">
     <p class="wizard-q">On-Premises Recommendation</p>
     <p style="color: var(--slate-300); margin-bottom: 2rem;">Upgrade to <strong>Exchange Server Subscription Edition (SE)</strong> for data sovereignty.</p>
-    <a href="{% link docs/implement.md %}#option-2-exchange-server-subscription-edition" class="btn btn-primary">View Upgrade Guide</a>
+    <a href="/Exchange-Server-EOS/{% link docs/implement.md %}#option-2-exchange-server-subscription-edition" class="btn btn-primary">View Upgrade Guide</a>
     <button class="btn" style="color: #fff; margin-left: 1rem;" data-next="q1">Start Over</button>
   </div>
 </div>
@@ -86,7 +86,7 @@ permalink: /
   <div style="text-align: center; margin-top: 1rem;">
     <p style="color: var(--slate-500); margin: 0;">5-Year Total Cost of Ownership</p>
     <h2 style="margin: 0.5rem 0; color: var(--blue-700); font-size: 3rem !important; border: none !important;" id="calc-result-val">$400,000</h2>
-    <a href="{% link docs/tco.md %}" style="font-size: 0.8rem; font-weight: 700;">View Detailed TCO Analysis →</a>
+    <a href="/Exchange-Server-EOS/{% link docs/tco.md %}" style="font-size: 0.8rem; font-weight: 700;">View Detailed TCO Analysis →</a>
   </div>
 </div>
 

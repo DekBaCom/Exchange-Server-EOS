@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d \"D:\\\\Github-All-Repo\\\\Exchange-Server-EOS\")",
+      "Bash(Get-ChildItem -Recurse)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "PowerShell(cd \"D:\\\\Github-All-Repo\\\\Exchange-Server-EOS\\\\_site\"; Get-ChildItem -Recurse -File | Where-Object {$_.Extension -eq '.html'} | Select-Object FullName)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git *)",
+      "Bash(bundle exec *)",
+      "Bash(curl -s -L \"https://www.microsoft.com/en-us/compliance/\" -I)",
+      "Bash(curl -s -L \"https://learn.microsoft.com/en-us/powershell/module/exchange\" -I)",
+      "Bash(cat)",
+      "Bash(chmod +x /tmp/remove_broken_links.sh)",
+      "Bash(/tmp/remove_broken_links.sh)",
+      "Bash(awk '{print $2}')",
+      "Bash(awk '{print $9, \"-\", $5}')"
+    ]
+  }
+}
