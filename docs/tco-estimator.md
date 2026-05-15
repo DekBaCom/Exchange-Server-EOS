@@ -25,11 +25,14 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
         <div class="slider-container">
           <div class="slider-tooltip" id="usersTooltip">500</div>
           <input type="range" id="users" min="50" max="5000" value="500" step="50" class="slider-with-tooltip">
-          <div class="slider-progress-bar">
-            <div class="slider-progress-fill" id="usersProgressFill" style="width: 9%;"></div>
+        </div>
+        <div class="interactive-bar-wrap">
+          <div class="interactive-bar-track">
+            <div class="interactive-bar-fill" id="usersBarFill" style="width:9%"></div>
           </div>
-          <div class="progress-value-label">
-            <span id="usersProgressValue">500</span> / 5,000 users
+          <div class="interactive-bar-label">
+            <span class="interactive-bar-value" id="usersBarValue">500</span>
+            <span class="interactive-bar-max"> / 5,000 users</span>
           </div>
         </div>
       </div>
@@ -40,8 +43,14 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
           <div class="slider-tooltip" id="costPerFteTooltip">$80,000</div>
           <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000" class="slider-with-tooltip">
         </div>
-        <div style="margin-top: 0.5rem; font-size: 1.1rem;">
-          $<span id="costPerFteDisplay">80,000</span> / year
+        <div class="interactive-bar-wrap">
+          <div class="interactive-bar-track">
+            <div class="interactive-bar-fill" id="costBarFill" style="width:25%"></div>
+          </div>
+          <div class="interactive-bar-label">
+            <span class="interactive-bar-value" id="costBarValue">$80,000</span>
+            <span class="interactive-bar-max"> / $200,000</span>
+          </div>
         </div>
       </div>
 
@@ -224,15 +233,26 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
   }
 }
 
-// Update progress bars for both sliders
+// Update interactive bars for both sliders
 function updateProgressBar() {
-  const slider = document.getElementById('users');
-  const fill = document.getElementById('usersProgressFill');
-  const label = document.getElementById('usersProgressValue');
-  if (!slider || !fill || !label) return;
-  const pct = ((parseInt(slider.value) - parseInt(slider.min)) / (parseInt(slider.max) - parseInt(slider.min))) * 100;
-  fill.style.width = pct + '%';
-  label.textContent = parseInt(slider.value).toLocaleString();
+  // Users bar
+  const usersSlider = document.getElementById('users');
+  const usersFill = document.getElementById('usersBarFill');
+  const usersVal = document.getElementById('usersBarValue');
+  if (usersSlider && usersFill && usersVal) {
+    const pct = ((parseInt(usersSlider.value) - parseInt(usersSlider.min)) / (parseInt(usersSlider.max) - parseInt(usersSlider.min))) * 100;
+    usersFill.style.width = pct + '%';
+    usersVal.textContent = parseInt(usersSlider.value).toLocaleString();
+  }
+  // IT Cost bar
+  const costSlider = document.getElementById('costPerFte');
+  const costFill = document.getElementById('costBarFill');
+  const costVal = document.getElementById('costBarValue');
+  if (costSlider && costFill && costVal) {
+    const pct = ((parseInt(costSlider.value) - parseInt(costSlider.min)) / (parseInt(costSlider.max) - parseInt(costSlider.min))) * 100;
+    costFill.style.width = pct + '%';
+    costVal.textContent = '$' + parseInt(costSlider.value).toLocaleString();
+  }
 }
 
 // Ensure DOM is ready
