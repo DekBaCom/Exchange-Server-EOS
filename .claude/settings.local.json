@@ -27,7 +27,8 @@
       "Bash(curl -s -o /dev/null -w \"Main Assets CSS: %{http_code}\\\\n\" \"http://localhost:4000/Exchange-Server-EOS/assets/css/custom.css\")",
       "Bash(curl -s -o /dev/null -w \"JS Script: %{http_code}\\\\n\" \"http://localhost:4000/Exchange-Server-EOS/assets/js/tco-estimator.js\")",
       "Bash(curl -s \"http://127.0.0.1:4000/Exchange-Server-EOS/docs/tco-estimator.html\")",
-      "Bash(pkill -f \"jekyll serve\")"
+      "Bash(pkill -f \"jekyll serve\")",
+      "Bash(curl -s \"https://dekbacom.github.io/Exchange-Server-EOS/docs/tco-estimator.html\")"
     ]
   }
 }

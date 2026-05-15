@@ -28,7 +28,7 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
           <div class="slider-progress-bar">
             <div class="slider-progress-fill" id="usersProgressFill" style="width: 9%;"></div>
           </div>
-          <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+          <div class="progress-value-label">
             <span id="usersProgressValue">500</span> / 5,000 users
           </div>
         </div>
@@ -39,12 +39,6 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
         <div class="slider-container">
           <div class="slider-tooltip" id="costPerFteTooltip">$80,000</div>
           <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000" class="slider-with-tooltip">
-          <div class="slider-progress-bar">
-            <div class="slider-progress-fill" id="costPerFteProgressFill" style="width: 33.33%;"></div>
-          </div>
-          <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
-            $<span id="costPerFteProgressValue">80,000</span> / $200,000
-          </div>
         </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
           $<span id="costPerFteDisplay">80,000</span> / year
@@ -232,34 +226,13 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
 
 // Update progress bars for both sliders
 function updateProgressBar() {
-  updateSliderProgressBar('users', 'usersProgressFill', 'usersProgressValue', false);
-  updateSliderProgressBar('costPerFte', 'costPerFteProgressFill', 'costPerFteProgressValue', true);
-}
-
-// Helper to update individual progress bar
-function updateSliderProgressBar(sliderId, fillId, valueId, isCurrency) {
-  const slider = document.getElementById(sliderId);
-  const progressFill = document.getElementById(fillId);
-  const progressValue = document.getElementById(valueId);
-  
-  if (!slider || !progressFill || !progressValue) return;
-  
-  const min = parseInt(slider.min);
-  const max = parseInt(slider.max);
-  const value = parseInt(slider.value);
-  
-  // Calculate percentage (0-100)
-  const percentage = ((value - min) / (max - min)) * 100;
-  
-  // Update progress bar width
-  progressFill.style.width = percentage + '%';
-  
-  // Update progress value text
-  if (isCurrency) {
-    progressValue.textContent = value.toLocaleString();
-  } else {
-    progressValue.textContent = value.toLocaleString();
-  }
+  const slider = document.getElementById('users');
+  const fill = document.getElementById('usersProgressFill');
+  const label = document.getElementById('usersProgressValue');
+  if (!slider || !fill || !label) return;
+  const pct = ((parseInt(slider.value) - parseInt(slider.min)) / (parseInt(slider.max) - parseInt(slider.min))) * 100;
+  fill.style.width = pct + '%';
+  label.textContent = parseInt(slider.value).toLocaleString();
 }
 
 // Ensure DOM is ready

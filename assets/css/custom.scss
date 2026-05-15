@@ -663,6 +663,13 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+.progress-value-label {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
 /* Mobile Responsive */
 @media (max-width: 992px) {
   .estimator-layout {
