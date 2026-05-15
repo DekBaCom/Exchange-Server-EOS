@@ -37,18 +37,18 @@ Exchange Server is an attractive target for threat actors because:
 
 | CVE | Year | Severity | Impact |
 |:---|:---:|:---:|:---|
-| ProxyLogon (CVE-2021-26855) | 2021 | Critical | Pre-auth RCE, mass exploitation ([Microsoft security advisory](https://learn.microsoft.com/en-us/security/advisory)) |
+| ProxyLogon (CVE-2021-26855) | 2021 | Critical | Pre-auth RCE, mass exploitation |
 | ProxyShell (CVE-2021-34473) | 2021 | Critical | Pre-auth RCE |
 | ProxyNotShell (CVE-2022-41082) | 2022 | High | Authenticated RCE |
 | OWASSRF (CVE-2022-41080) | 2022 | Critical | Server-Side Request Forgery |
 
-New vulnerabilities of this severity will continue to be discovered — and after EOS, will never be patched. See [Microsoft Security Update Guide](https://learn.microsoft.com/en-us/security/update-guide) for latest CVE information.
+New vulnerabilities of this severity will continue to be discovered — and after EOS, will never be patched.
 
 ### Recommended Security Mitigations (If Still Running Unsupported)
 
 - Restrict OWA and EWS to VPN-only access immediately
 - Enable Windows Defender and keep definition updates active 
-- Deploy a Web Application Firewall (WAF) or Exchange-aware proxy using [Exchange Online Protection (EOP)](https://learn.microsoft.com/en-us/exchange/security/exchange-online-protection-overview) as a reference model
+- Deploy a Web Application Firewall (WAF) or Exchange-aware proxy as a reference model
 - Implement network segmentation to isolate Exchange servers
 - Enable enhanced monitoring and alerting on Exchange event logs
 - Accelerate migration timeline as the top organizational priority
@@ -67,10 +67,10 @@ Many industries operate under regulations that require vendors to provide suppor
 | Regulation | Region / Sector | Requirement |
 |:---|:---|:---|
 | GDPR | EU (all sectors) | Appropriate technical measures for data security ) |
-| HIPAA | US (healthcare) | Access controls and audit trails on ePHI ([Microsoft HIPAA](https://www.microsoft.com/en-us/compliance/hipaa)) |
-| PCI DSS | Global (payment card) | Patching and vulnerability management ) |
-| ISO/IEC 27001 | Global | Patch management as part of information security management ([Microsoft ISO 27001](https://www.microsoft.com/en-us/compliance/iso-27001)) |
-| SOC 2 | US (SaaS/service orgs) | Logical access and change management ([Microsoft SOC 2](https://www.microsoft.com/en-us/compliance/soc-2)) |
+| HIPAA | US (healthcare) | Access controls and audit trails on ePHI |
+| PCI DSS | Global (payment card) | Patching and vulnerability management |
+| ISO/IEC 27001 | Global | Patch management as part of information security management |
+| SOC 2 | US (SaaS/service orgs) | Logical access and change management |
 | PDPA (Thailand) | Thailand | Security measures appropriate to risk |
 
 ### Audit Implications
@@ -84,7 +84,7 @@ An unsupported Exchange Server cannot satisfy these questions, potentially leadi
 
 ### Legal Hold & eDiscovery
 
-Microsoft 365 provides In-Place Hold and eDiscovery natively ([In-Place Hold](https://learn.microsoft.com/en-us/exchange/compliance/in-place-hold), [eDiscovery](https://learn.microsoft.com/en-us/microsoft-365/compliance/ediscovery)). Organizations on unsupported on-premises Exchange must maintain these capabilities themselves without Microsoft's support or tooling improvements.
+Microsoft 365 provides In-Place Hold and eDiscovery natively. Organizations on unsupported on-premises Exchange must maintain these capabilities themselves without Microsoft's support or tooling improvements.
 
 ---
 
@@ -97,8 +97,8 @@ Organizations considering migration to Microsoft 365 (Exchange Online) should ev
 | Data residency | Microsoft 365 stores data in regional datacenters ([Data locations](https://microsoft.com/microsoft-365/business/microsoft-365-data-locations)); verify your region |
 | Data access by Microsoft | Microsoft can access data under lawful order (same as cloud providers globally) |
 | Government subpoenas | US CLOUD Act applies to Microsoft regardless of data location |
-| Multi-geo tenants | Microsoft 365 Multi-Geo ([Multi-Geo](https://learn.microsoft.com/en-us/microsoft-365/enterprise/multi-geo-capabilities-in-microsoft-365)) allows per-user data location (additional cost) |
-| Sovereignty clouds | Microsoft offers [GCC, GCC High (US), and national clouds](https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-government) for strict requirements |
+| Multi-geo tenants | Microsoft 365 Multi-Geo allows per-user data location (additional cost) |
+| Sovereignty clouds | Microsoft offers GCC, GCC High (US), and national clouds for strict requirements |
 
 {: .note }
 Thailand-based organizations should review Microsoft's [data center commitments](https://learn.microsoft.com/en-us/microsoft-365/enterprise/o365-data-locations) for the Thailand region, which became available in 2024.
@@ -149,14 +149,14 @@ Cloud migration changes your DR profile:
 | Outlook on the Web | Any modern browser |
 
 {: .warning }
-Outlook 2013 is end of life and not supported with Exchange Online ([Outlook on the Web support](https://learn.microsoft.com/en-us/exchange/clients-and-mobile/outlook-on-the-web)). Users on Outlook 2013 must upgrade before or during migration.
+Outlook 2013 is end of life and not supported with Exchange Online. Users on Outlook 2013 must upgrade before or during migration.
 
 ### Application Integration Risks
 
 Applications using **Basic Authentication** or **EWS (Exchange Web Services)** require specific attention:
 
 - **Basic Auth** has been deprecated in Exchange Online — applications must be updated to support OAuth 2.0
-- **EWS** continues to be supported ([EWS in Exchange Online](https://learn.microsoft.com/en-us/exchange/clients-and-mobile/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services)) but is deprecated for new development; applications should migrate to [Microsoft Graph API](https://learn.microsoft.com/graph/migrate-exchange-online-to-graph)
+- **EWS** is deprecated for new development; applications should migrate to [Microsoft Graph API](https://learn.microsoft.com/graph/migrate-exchange-online-to-graph)
 - **MAPI/CDO** is not available in Exchange Online — applications using these must be rewritten or replaced
 - **PowerShell Remoting** to Exchange is replaced by the [Exchange Online PowerShell V3 module](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell-v3)
 

@@ -46,8 +46,8 @@ graph TD
 
 ### Key Components:
 - **Microsoft Entra ID:** Provides identity synchronization and Single Sign-On (SSO) ([Entra ID hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity)).
-- **Exchange Online Protection (EOP):** Handles anti-spam and anti-malware filtering ([EOP documentation](https://learn.microsoft.com/en-us/exchange/security/exchange-online-protection-overview)) as the primary entry point.
-- **SMTP Relay:** Local devices and applications are updated to relay directly to the cloud ([SMTP authentication](https://learn.microsoft.com/en-us/exchange/clients-and-mobile/smtp-auth)) or via a simplified on-premises relay.
+- **Exchange Online Protection (EOP):** Handles anti-spam and anti-malware filtering as the primary entry point.
+- **SMTP Relay:** Local devices and applications are updated to relay directly to the cloud or via a simplified on-premises relay.
 
 ---
 
@@ -106,6 +106,6 @@ graph TD
 ```
 
 ### Key Components:
-- **Database Availability Group (DAG):** Provides high availability and continuous replication ([DAG architecture](https://learn.microsoft.com/en-us/exchange/architecture/database-availability-groups)) of mailbox databases.
+- **Database Availability Group (DAG):** Provides high availability and continuous replication of mailbox databases.
 - **Exchange Server SE:** The subscription-based successor to Exchange 2019 , ensuring a supported on-premises environment.
-- **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability ([High availability](https://learn.microsoft.com/en-us/exchange/architecture/high-availability)).
+- **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability.

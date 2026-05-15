@@ -114,13 +114,13 @@ Microsoft 365 bundles Exchange Online with the broader Microsoft productivity pl
 | Plan | Price (est.) | Exchange Storage | Key Inclusions |
 |:---|---:|:---:|:---|
 | [Microsoft 365 E1](https://microsoft.com/microsoft-365/enterprise/microsoft-365-enterprise-plans) | ~$10/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
-| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | E1 + desktop Office, [Compliance (Purview)](https://www.microsoft.com/en-us/compliance/purview), Intune, Entra ID P1 |
+| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | E1 + desktop Office, Compliance (Purview), Intune, Entra ID P1 |
 | Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
 | Microsoft 365 F3 (Frontline) | ~$8/user/mo | 2 GB | Email + Teams for frontline/shift workers |
 
 ### Exchange Online Standalone Plans
 
-If you only need email (no Teams, no Office apps), [standalone Exchange Online plans](https://learn.microsoft.com/en-us/exchange/servicedescriptions/exchange-online-service-description/exchange-online-plans-and-pricing) are available:
+If you only need email (no Teams, no Office apps), standalone Exchange Online plans are available:
 
 | Plan | Price (est.) | Storage | Features |
 |:---|---:|:---:|:---|
@@ -132,10 +132,10 @@ If you only need email (no Teams, no Office apps), [standalone Exchange Online p
 
 | Add-On | Price (est.) | Purpose |
 |:---|---:|:---|
-| [Microsoft Defender for Office 365 Plan 1](https://learn.microsoft.com/en-us/security/business/microsoft-defender-office-365) | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
+| Microsoft Defender for Office 365 Plan 1 | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
 | Microsoft Defender for Office 365 Plan 2 | ~$5/user/mo | Plan 1 + threat investigation, attack simulation |
-| [Microsoft 365 Backup](https://learn.microsoft.com/en-us/microsoft-365-backup/overview) | ~$0.15/GB/mo | Native backup for Exchange Online, OneDrive, SharePoint |
-| [Purview Information Protection P1](https://www.microsoft.com/en-us/compliance/purview) | Included in E3 | Sensitivity labels, encryption |
+| Microsoft 365 Backup | ~$0.15/GB/mo | Native backup for Exchange Online, OneDrive, SharePoint |
+| Purview Information Protection P1 | Included in E3 | Sensitivity labels, encryption |
 | [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20) | Included in E5 | Advanced legal hold and case management |
 
 ---
@@ -157,7 +157,7 @@ If you only need email (no Teams, no Office apps), [standalone Exchange Online p
 
 ## Exchange Hybrid License
 
-Organizations maintaining an on-premises Exchange server purely for hybrid management (not hosting mailboxes) qualify for the **[Exchange Hybrid License](https://learn.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent-and-licensing)** — a free license from Microsoft.
+Organizations maintaining an on-premises Exchange server purely for hybrid management (not hosting mailboxes) qualify for the **Exchange Hybrid License** — a free license from Microsoft.
 
 **Eligibility requirements:**
 - Organization must have active Microsoft 365 / Exchange Online subscriptions

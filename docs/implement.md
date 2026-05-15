@@ -114,7 +114,7 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
 1. **Tenant preparation**
    - Verify domains in Microsoft 365 admin center ([Domain verification](https://learn.microsoft.com/en-us/microsoft-365/admin/setup/add-domain))
    - Configure Entra ID Connect for identity sync ([Entra ID Connect](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity))
-   - Assign Exchange Online licenses to users ([Exchange Online service description](https://learn.microsoft.com/en-us/exchange/servicedescriptions/exchange-online-service-description))
+   - Assign Exchange Online licenses to users
 
 2. **Hybrid configuration** (if using hybrid migration)
    - Download and run the Hybrid Configuration Wizard 
@@ -133,7 +133,7 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
    - Set DMARC policy to `p=quarantine` or `p=reject`
 
 5. **Decommission**
-   - Follow Microsoft's published Exchange Server decommission guide ([Decommissioning](https://learn.microsoft.com/en-us/exchange/decommissioning))
+   - Follow Microsoft's published Exchange Server decommission guide
    - Do not delete Exchange server objects from Active Directory directly
 
 ---
@@ -146,7 +146,7 @@ Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchan
 ### Key Characteristics
 
 - **Subscription-based licensing** — Annual server + CAL subscriptions replace perpetual licenses 
-- **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation ([Upgrade paths](https://learn.microsoft.com/en-us/exchange/upgrades))
+- **In-place upgrade support** — Upgrade from Exchange 2019 without reinstallation
 - **Feature parity** — Includes all Exchange 2019 features plus ongoing updates
 - **Support lifecycle** — Extended support through 2030 or later (verify with Microsoft)
 
