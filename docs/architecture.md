@@ -57,22 +57,22 @@ The **Hybrid** architecture is ideal for large organizations that need a phased 
 
 ```mermaid
 graph LR
-    subgraph "On-Premises"
+    subgraph OnPrem["On-Premises"]
         EX19[Exchange Server 2019 / SE]
-        LocalMB[Local Mailboxes]
+        LocalMB[(Local Mailboxes)]
     end
-
-    subgraph "Microsoft 365"
+    subgraph M365["Microsoft 365"]
         EXO[Exchange Online]
-        CloudMB[Cloud Mailboxes]
+        CloudMB[(Cloud Mailboxes)]
     end
-
-    EX19 <-->| "Hybrid Connector (TLS)" | EXO
-    EX19 <-->| "Cross-Premises Free/Busy" | EXO
+    Internet((Internet)) -->|MX / SMTP| EX19
     Users[Users] --> EX19
     Users --> EXO
-    Internet((Internet)) -- "MX / SMTP" --> EX19
-    EX19 -- "Redirect" --> EXO
+    EX19 -->|Hybrid Connector TLS| EXO
+    EXO -->|Hybrid Connector TLS| EX19
+    EX19 -.->|Cross-Premises Free/Busy| EXO
+    EX19 --- LocalMB
+    EXO --- CloudMB
 ```
 
 ### Key Components:
@@ -88,23 +88,21 @@ The **On-Premises** strategy is for organizations that must maintain data sovere
 
 ```mermaid
 graph TD
-    subgraph "Primary Datacenter"
+    subgraph Primary["Primary Datacenter"]
         LB1[Load Balancer]
         EXSE1[Exchange SE Server 1]
         EXSE2[Exchange SE Server 2]
         DAG[(Database Availability Group)]
     end
-
-    subgraph "Secondary Datacenter (DR)"
+    subgraph Secondary["Secondary Datacenter - DR"]
         EXSE3[Exchange SE Server 3]
     end
-
     Internet((Internet)) --> LB1
     LB1 --> EXSE1
     LB1 --> EXSE2
     EXSE1 <--> DAG
     EXSE2 <--> DAG
-    DAG -.->| "Continuous Replication" | EXSE3
+    DAG -.->|Continuous Replication| EXSE3
 ```
 
 ### Key Components:
