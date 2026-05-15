@@ -268,3 +268,20 @@ Long-term hybrid is operationally complex. Unless you have a genuine requirement
 
 {: .note }
 Timeline varies significantly by organization size, complexity, and chosen migration method. Large organizations with thousands of mailboxes should plan for 6–12 months.
+
+---
+
+## Document References
+
+| Topic | Microsoft Source |
+|:---|:---|
+| Exchange Server SE — What's New | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
+| Exchange SE system requirements | [Exchange Server 2019 and SE system requirements](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/system-requirements) |
+| Exchange SE upgrade paths (blog) | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
+| Hybrid Configuration Wizard | [Hybrid deployment prerequisites](https://learn.microsoft.com/en-us/exchange/hybrid-deployment-prerequisites) |
+| New-MigrationBatch cmdlet | [New-MigrationBatch (Exchange Online PS)](https://learn.microsoft.com/en-us/powershell/module/exchange/new-migrationbatch) |
+| New-MoveRequest cmdlet | [New-MoveRequest](https://learn.microsoft.com/en-us/powershell/module/exchange/new-moverequest) |
+| Entra ID Connect | [What is Microsoft Entra Connect?](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect) |
+| Exchange TLS configuration | [Exchange Server TLS Guidance](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/post-installation-tasks/security-best-practices/exchange-tls-configuration) |
+| Modern Auth on-premises | [Enable Modern Auth in Exchange On-Premises](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/post-installation-tasks/enable-modern-auth-in-exchange-server-on-premises) |
+| Exchange Server decommission guide | [Decommission Exchange servers](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/post-installation-tasks/decommission-exchange-servers) |

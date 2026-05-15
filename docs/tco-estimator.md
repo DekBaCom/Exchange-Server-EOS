@@ -181,6 +181,35 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 - **Datacenter costs** toggle represents power, cooling, colocation, or data center facility space
 - **IT staffing** is calculated as a percentage of annual FTE cost allocated to email management
 
+---
+
+## Pricing Sources
+
+All subscription costs in this estimator are based on Microsoft's published list prices (annual subscription). Actual costs depend on agreement type, volume discounts, and geography.
+
+| Product | Confirmed Price | Source |
+|:---|---:|:---|
+| Exchange Online Plan 1 | $4.00/user/mo | [Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
+| Exchange Online Plan 2 | $8.00/user/mo | [Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
+| Microsoft 365 Business Basic | $6.00/user/mo | [M365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) |
+| Microsoft 365 Business Standard | $12.50/user/mo | [M365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) |
+| Office 365 E1 | $10.00/user/mo | [Office 365 Enterprise plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
+| Office 365 E3 | $23.00/user/mo | [Office 365 Enterprise plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
+| Microsoft 365 F3 (Frontline) | $8.00/user/mo | [M365 F3](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) |
+| Microsoft 365 E3 | ~$36/user/mo (est.) | MSRP estimate — confirm with Microsoft |
+| Exchange Server SE server subscription | ~$12,000/server/year (est.) | Confirm with Microsoft licensing partner |
+| Exchange SE CAL subscription | ~$40/user/year (est.) | Confirm with Microsoft licensing partner |
+
+## Document References
+
+| Topic | Microsoft Source |
+|:---|:---|
+| Exchange Server SE — What's New | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
+| Exchange SE system requirements | [System requirements for Exchange SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/system-requirements) |
+| Microsoft 365 Business plans | [Compare Microsoft 365 Business plans](https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans) |
+| Exchange Online plan comparison | [Compare Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
+| Office 365 Enterprise plans | [Compare Office 365 Enterprise plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="{{ '/assets/js/tco-estimator.js' | relative_url }}"></script>
 <script>

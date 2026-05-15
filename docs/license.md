@@ -219,29 +219,43 @@ Microsoft 365 bundles Exchange Online with the broader Microsoft productivity pl
 
 ### Business Plans (Up to 300 Users)
 
-| Plan | Price (est.) | Exchange Storage | Key Inclusions |
+Prices verified from [Microsoft 365 Business plans](https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans) (annual subscription, paid yearly).
+
+| Plan | Confirmed Price | Exchange Storage | Key Inclusions |
 |:---|---:|:---:|:---|
-| [Microsoft 365 Business Basic](https://microsoft.com/microsoft-365/business/microsoft-365-business-basic) | ~$6/user/mo | 50 GB | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
-| Microsoft 365 Business Standard | ~$12.50/user/mo | 50 GB | Business Basic + desktop Office apps |
+| [Microsoft 365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) | $6.00/user/mo | 50 GB | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
+| [Microsoft 365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) | $12.50/user/mo | 50 GB | Business Basic + desktop Office apps |
 | Microsoft 365 Business Premium | ~$22/user/mo | 50 GB + archive | Standard + Intune, Entra ID P1, Defender for Business |
 
 ### Enterprise Plans (Unlimited Users)
 
+{: .note }
+Microsoft offers two enterprise plan families: **Office 365** (productivity apps + email only) and **Microsoft 365** (Office 365 + Intune + Windows + advanced security). For email-only migrations, Office 365 plans may suffice. For full enterprise governance, Microsoft 365 E3/E5 is recommended.
+
+**Office 365 Enterprise (productivity + email focus):**
+
+| Plan | Confirmed Price | Exchange Storage | Key Inclusions |
+|:---|---:|:---:|:---|
+| [Office 365 E1](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) | $10.00/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
+| Office 365 E3 | $23.00/user/mo | Unlimited + archive | E1 + desktop Office apps, advanced compliance |
+| Office 365 E5 | $38.00/user/mo | Unlimited + archive | E3 + Defender for O365 P2, Power BI Pro, advanced compliance |
+
+**Microsoft 365 Enterprise (full platform with device & security management):**
+
 | Plan | Price (est.) | Exchange Storage | Key Inclusions |
 |:---|---:|:---:|:---|
-| [Microsoft 365 E1](https://microsoft.com/microsoft-365/enterprise/microsoft-365-enterprise-plans) | ~$10/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
-| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | E1 + desktop Office, Compliance (Purview), Intune, Entra ID P1 |
-| Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
-| Microsoft 365 F3 (Frontline) | ~$8/user/mo | 2 GB | Email + Teams for frontline/shift workers |
+| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | Office 365 E3 + Intune, Entra ID P1, Windows 11 Enterprise |
+| Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | M365 E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
+| [Microsoft 365 F3 (Frontline)](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) | $8.00/user/mo | 2 GB | Email + Teams for frontline/shift workers |
 
 ### Exchange Online Standalone Plans
 
-If you only need email (no Teams, no Office apps), standalone Exchange Online plans are available:
+If you only need email (no Teams, no Office apps), standalone Exchange Online plans are available. Prices confirmed from [Exchange Online plans comparison](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans).
 
-| Plan | Price (est.) | Storage | Features |
+| Plan | Confirmed Price | Storage | Features |
 |:---|---:|:---:|:---|
-| Exchange Online Plan 1 | ~$4/user/mo | 50 GB | Email, calendar, contacts, 1 TB OneDrive |
-| Exchange Online Plan 2 | ~$8/user/mo | Unlimited + archive | Plan 1 + unlimited archiving, Litigation Hold, DLP |
+| [Exchange Online Plan 1](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) | $4.00/user/mo | 50 GB | Email, calendar, contacts, 1 TB OneDrive |
+| [Exchange Online Plan 2](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) | $8.00/user/mo | Unlimited + archive | Plan 1 + unlimited archiving, Litigation Hold, DLP |
 | Exchange Online Kiosk | ~$2/user/mo | 2 GB | Basic email for kiosk/shared device users |
 
 ### Add-On Licenses Relevant to Email
@@ -313,3 +327,22 @@ A: Yes. Microsoft offers substantially discounted and free Microsoft 365 plans f
 
 **Q: What is the minimum commitment for Microsoft 365?**  
 A: Annual subscriptions offer the lowest per-user pricing. Month-to-month subscriptions are available at a 20% premium. Enterprise Agreements typically require a 3-year commitment with a 250-seat minimum.
+
+---
+
+## Document References
+
+The following Microsoft documentation was used as the primary source for this page. All pricing is as of the published date on each linked page — confirm current pricing directly with Microsoft or a licensed partner.
+
+| Topic | Microsoft Source |
+|:---|:---|
+| Exchange Online plan comparison & pricing | [Compare Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
+| Microsoft 365 Business Basic | [M365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) |
+| Microsoft 365 Business Standard | [M365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) |
+| Office 365 Enterprise plan comparison | [Compare Office 365 Enterprise](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
+| Microsoft 365 Frontline F3 | [M365 F3 Frontline](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) |
+| Exchange Server SE new features | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
+| Exchange SE licensing & subscription model | [Exchange Server SE](https://learn.microsoft.com/en-us/exchange) |
+| Exchange SE in-place upgrade blog | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
+| Volume Licensing Service Center (SA check) | [Microsoft VLSC](https://www.microsoft.com/licensing/servicecenter) |
+| Microsoft 365 Nonprofit Program | [M365 for Nonprofits](https://www.microsoft.com/en-us/nonprofits/microsoft-365) |

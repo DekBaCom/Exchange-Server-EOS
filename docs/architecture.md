@@ -131,3 +131,17 @@ graph TD
 - **Exchange Server SE:** Released June 2025; subscription-based successor to Exchange 2019 with in-place upgrade from CU14/CU15. Supports Windows Server Core, enforces TLS 1.2/1.3, and includes modern authentication via ADFS.
 - **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability.
 - **Windows Server 2022:** Required OS for new Exchange SE deployments; Windows Server Core now supported for the first time.
+
+---
+
+## Document References
+
+| Topic | Microsoft Source |
+|:---|:---|
+| Exchange Server SE — What's New | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
+| Exchange SE architecture | [Exchange Server architecture](https://learn.microsoft.com/en-us/exchange/architecture/architecture) |
+| Exchange SE upgrade paths (blog) | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
+| Exchange SE system requirements | [System requirements for Exchange SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/system-requirements) |
+| Exchange Online documentation | [Exchange Online](https://learn.microsoft.com/en-us/exchange/exchange-online) |
+| Entra ID hybrid identity | [Microsoft Entra ID hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity) |
+| Hybrid deployment overview | [Exchange Server hybrid deployments](https://learn.microsoft.com/en-us/exchange/exchange-hybrid) |
