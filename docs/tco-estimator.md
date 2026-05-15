@@ -22,7 +22,10 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 
       <div class="input-group">
         <label for="users">Number of Users</label>
-        <input type="range" id="users" min="50" max="5000" value="500" step="50">
+        <div class="slider-container">
+          <div class="slider-tooltip" id="usersTooltip">500</div>
+          <input type="range" id="users" min="50" max="5000" value="500" step="50" class="slider-with-tooltip">
+        </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
           <span id="usersDisplay">500</span> users
         </div>
@@ -30,7 +33,10 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 
       <div class="input-group">
         <label for="costPerFte">IT Staff Cost per FTE</label>
-        <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000">
+        <div class="slider-container">
+          <div class="slider-tooltip" id="costPerFteTooltip">$80,000</div>
+          <input type="range" id="costPerFte" min="40000" max="200000" value="80000" step="5000" class="slider-with-tooltip">
+        </div>
         <div style="margin-top: 0.5rem; font-size: 1.1rem;">
           $<span id="costPerFteDisplay">80,000</span> / year
         </div>
@@ -166,7 +172,7 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="{{ '/assets/js/tco-estimator.js' | relative_url }}"></script>
 <script>
-// Update display values as user adjusts sliders
+// Update display values and tooltips as user adjusts sliders
 function updateDisplayValues() {
   const usersInput = document.getElementById('users');
   const costPerFteInput = document.getElementById('costPerFte');
@@ -178,6 +184,39 @@ function updateDisplayValues() {
   }
   if (costPerFteInput && costPerFteDisplay) {
     costPerFteDisplay.textContent = parseInt(costPerFteInput.value).toLocaleString();
+  }
+  
+  updateSliderTooltips();
+}
+
+// Update slider tooltip positions and values dynamically
+function updateSliderTooltips() {
+  updateTooltip('users', 'usersTooltip', false);
+  updateTooltip('costPerFte', 'costPerFteTooltip', true);
+}
+
+// Helper to update individual tooltip
+function updateTooltip(sliderId, tooltipId, isCurrency) {
+  const slider = document.getElementById(sliderId);
+  const tooltip = document.getElementById(tooltipId);
+  
+  if (!slider || !tooltip) return;
+  
+  const min = parseInt(slider.min);
+  const max = parseInt(slider.max);
+  const value = parseInt(slider.value);
+  
+  // Calculate percentage position (0-100)
+  const percentage = ((value - min) / (max - min)) * 100;
+  
+  // Position tooltip horizontally centered above thumb
+  tooltip.style.left = percentage + '%';
+  
+  // Format and display value
+  if (isCurrency) {
+    tooltip.textContent = '$' + value.toLocaleString();
+  } else {
+    tooltip.textContent = value.toLocaleString();
   }
 }
 
