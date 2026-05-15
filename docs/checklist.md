@@ -8,7 +8,7 @@ description: "Phased migration checklist covering assessment, planning, implemen
 # Migration Readiness Checklist
 {: .no_toc }
 
-Use this phased checklist to guide your Exchange Server migration project from initial assessment through post-migration cleanup. Click any checkbox to track progress — your selections are saved automatically in the browser.
+Use this phased checklist to guide your Exchange Server migration project from initial assessment through post-migration cleanup. Click any item to track progress — your selections are saved automatically in the browser.
 {: .fs-6 .fw-300 }
 
 <div class="checklist-toolbar" id="checklistToolbar">
@@ -40,51 +40,59 @@ Complete this phase before choosing a migration path. Decisions made here drive 
 
 ### Server Inventory
 
-- [ ] Document all Exchange Server versions and editions in use
-- [ ] Record server hardware specifications (CPU, RAM, disk, network)
-- [ ] Identify server roles (Mailbox, Edge Transport, DAG membership)
-- [ ] Capture OS version and patch level for each server
-- [ ] List all installed Exchange Cumulative Updates (CUs)
-- [ ] Document Database Availability Group (DAG) topology
-- [ ] Identify co-located workloads on Exchange servers
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Document all Exchange Server versions and editions in use</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Record server hardware specifications (CPU, RAM, disk, network)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify server roles (Mailbox, Edge Transport, DAG membership)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Capture OS version and patch level for each server</label></li>
+  <li><label><input type="checkbox" class="eos-task"> List all installed Exchange Cumulative Updates (CUs)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document Database Availability Group (DAG) topology</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify co-located workloads on Exchange servers</label></li>
+</ul>
 
 ### Mailbox Audit
 
-- [ ] Export full mailbox inventory (size, item count, last logon)
-- [ ] Identify shared mailboxes, room/equipment mailboxes, and discovery mailboxes
-- [ ] Locate inactive and soft-deleted mailboxes
-- [ ] Audit mailbox archive sizes and archive policies
-- [ ] Identify users with mailboxes over 50 GB (cloud migration impact)
-- [ ] Review public folder usage and size
-- [ ] Document distribution groups, dynamic distribution groups, and mail-enabled security groups
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Export full mailbox inventory (size, item count, last logon)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify shared mailboxes, room/equipment mailboxes, and discovery mailboxes</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Locate inactive and soft-deleted mailboxes</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Audit mailbox archive sizes and archive policies</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify users with mailboxes over 50 GB (cloud migration impact)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review public folder usage and size</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document distribution groups, dynamic distribution groups, and mail-enabled security groups</label></li>
+</ul>
 
-### Mail Flow & Connectors
+### Mail Flow &amp; Connectors
 
-- [ ] Map all Send Connectors and Receive Connectors
-- [ ] Document SMTP relay configurations (applications, printers, scanners)
-- [ ] Identify third-party anti-spam/anti-malware gateways
-- [ ] Review accepted domains and email address policies
-- [ ] Document mail flow rules (transport rules)
-- [ ] Audit journal rules and compliance archive settings
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Map all Send Connectors and Receive Connectors</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document SMTP relay configurations (applications, printers, scanners)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify third-party anti-spam/anti-malware gateways</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review accepted domains and email address policies</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document mail flow rules (transport rules)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Audit journal rules and compliance archive settings</label></li>
+</ul>
 
-### Client & Integration Assessment
+### Client &amp; Integration Assessment
 
-- [ ] Identify all Outlook versions in use across the organization
-- [ ] Locate mobile device users (ActiveSync, Outlook Mobile)
-- [ ] Document Outlook on the Web (OWA) usage patterns
-- [ ] Identify third-party applications authenticating to Exchange
-  - ERP and CRM systems using SMTP relay
-  - Line-of-business applications with Exchange Web Services (EWS)
-  - Monitoring tools with mailbox access
-- [ ] Review MAPI/CDO-based legacy applications
-- [ ] Document any applications using Basic Authentication
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Identify all Outlook versions in use across the organization</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Locate mobile device users (ActiveSync, Outlook Mobile)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document Outlook on the Web (OWA) usage patterns</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify third-party applications authenticating to Exchange (ERP, CRM, EWS, monitoring tools)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review MAPI/CDO-based legacy applications</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document any applications using Basic Authentication</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review line-of-business apps with Exchange Web Services (EWS)</label></li>
+</ul>
 
-### DNS & Certificates
+### DNS &amp; Certificates
 
-- [ ] Audit all Exchange-related DNS records (Autodiscover, MX, SPF, DKIM, DMARC)
-- [ ] Review SSL/TLS certificate expiry dates and subject alternative names (SANs)
-- [ ] Document certificate authority (CA) used — internal vs. public
-- [ ] Verify certificate coverage for all Exchange namespaces
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Audit all Exchange-related DNS records (Autodiscover, MX, SPF, DKIM, DMARC)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review SSL/TLS certificate expiry dates and subject alternative names (SANs)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document certificate authority (CA) used — internal vs. public</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Verify certificate coverage for all Exchange namespaces</label></li>
+</ul>
 
 ---
 
@@ -95,38 +103,46 @@ Do not begin technical implementation until Phase 2 is complete. Decisions here 
 
 ### Migration Path Selection
 
-- [ ] Review [migration options]({% link docs/implement.md %}) and select primary path
-- [ ] Confirm cloud readiness (internet bandwidth, latency, licensing budget)
-- [ ] Validate data-sovereignty and compliance requirements
-- [ ] Obtain executive and stakeholder sign-off on migration strategy
-- [ ] Identify any regulatory constraints (GDPR, HIPAA, FedRAMP, ISO 27001)
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Review <a href="{% link docs/implement.md %}">migration options</a> and select primary path</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm cloud readiness (internet bandwidth, latency, licensing budget)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate data-sovereignty and compliance requirements</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Obtain executive and stakeholder sign-off on migration strategy</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Identify any regulatory constraints (GDPR, HIPAA, FedRAMP, ISO 27001)</label></li>
+</ul>
 
 ### Project Planning
 
-- [ ] Define project sponsor, project manager, and technical leads
-- [ ] Establish migration steering committee
-- [ ] Build detailed project plan with milestones and dependencies
-- [ ] Define pilot group (10–50 representative users)
-- [ ] Create mailbox migration waves (prioritized by department and risk)
-- [ ] Schedule migration during low-activity windows
-- [ ] Define rollback criteria and rollback procedure for each wave
-- [ ] Establish communication plan for end users and IT
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Define project sponsor, project manager, and technical leads</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Establish migration steering committee</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Build detailed project plan with milestones and dependencies</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Define pilot group (10–50 representative users)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Create mailbox migration waves (prioritized by department and risk)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Schedule migration during low-activity windows</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Define rollback criteria and rollback procedure for each wave</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Establish communication plan for end users and IT</label></li>
+</ul>
 
-### Licensing & Procurement
+### Licensing &amp; Procurement
 
-- [ ] Validate current Exchange Server license compliance
-- [ ] Obtain Microsoft 365 or Exchange SE license quotes
-- [ ] Purchase licenses with sufficient lead time before migration
-- [ ] Assign licenses to pilot users in advance of testing
-- [ ] Review Software Assurance entitlements (if applicable)
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Validate current Exchange Server license compliance</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Obtain Microsoft 365 or Exchange SE license quotes</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Purchase licenses with sufficient lead time before migration</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Assign licenses to pilot users in advance of testing</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review Software Assurance entitlements (if applicable)</label></li>
+</ul>
 
 ### Infrastructure Preparation
 
-- [ ] Assess Active Directory health (schema version, replication, domain functional level)
-- [ ] Verify AD Connect/Entra Connect is deployed for hybrid identity (if using Microsoft 365)
-- [ ] Confirm DNS delegation for Autodiscover in hybrid mode
-- [ ] Evaluate internet egress capacity for cloud migration workloads
-- [ ] Plan network firewall rules for hybrid connector (if applicable)
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Assess Active Directory health (schema version, replication, domain functional level)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Verify AD Connect/Entra Connect is deployed for hybrid identity (if using Microsoft 365)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm DNS delegation for Autodiscover in hybrid mode</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Evaluate internet egress capacity for cloud migration workloads</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Plan network firewall rules for hybrid connector (if applicable)</label></li>
+</ul>
 
 ---
 
@@ -134,38 +150,44 @@ Do not begin technical implementation until Phase 2 is complete. Decisions here 
 
 ### Environment Setup
 
-- [ ] Deploy test/staging environment for migration validation
-- [ ] Configure Microsoft 365 tenant (if migrating to cloud)
-  - [ ] Verify domain ownership in Microsoft 365 admin center
-  - [ ] Configure Entra ID Connect (formerly Azure AD Connect) sync
-  - [ ] Enable and configure Exchange Hybrid Configuration Wizard
-- [ ] Deploy Exchange Server SE (if staying on-premises)
-  - [ ] Prepare new server hardware or virtual machines
-  - [ ] Install and configure Exchange SE in coexistence mode
-- [ ] Validate hybrid mail flow end-to-end in test environment
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Deploy test/staging environment for migration validation</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Configure Microsoft 365 tenant — verify domain ownership in admin center</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Configure Entra ID Connect (formerly Azure AD Connect) sync</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Enable and configure Exchange Hybrid Configuration Wizard</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Deploy Exchange Server SE — prepare new server hardware or virtual machines</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Install and configure Exchange SE in coexistence mode</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate hybrid mail flow end-to-end in test environment</label></li>
+</ul>
 
-### Security & Compliance Baseline
+### Security &amp; Compliance Baseline
 
-- [ ] Enable Modern Authentication on current Exchange if not already active
-- [ ] Disable Basic Authentication for migrating users
-- [ ] Configure multi-factor authentication (MFA) for pilot users
-- [ ] Review and update Conditional Access policies (if using Entra ID)
-- [ ] Confirm data loss prevention (DLP) policies transfer or equivalent exists in target
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Enable Modern Authentication on current Exchange if not already active</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Disable Basic Authentication for migrating users</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Configure multi-factor authentication (MFA) for pilot users</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Review and update Conditional Access policies (if using Entra ID)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm data loss prevention (DLP) policies transfer or equivalent exists in target</label></li>
+</ul>
 
-### Backup & Recovery
+### Backup &amp; Recovery
 
-- [ ] Verify full backup of all Exchange databases
-- [ ] Test mailbox restore from backup in test environment
-- [ ] Document recovery time objective (RTO) and recovery point objective (RPO)
-- [ ] Retain Exchange backups for at least 90 days post-migration
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Verify full backup of all Exchange databases</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Test mailbox restore from backup in test environment</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document recovery time objective (RTO) and recovery point objective (RPO)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Retain Exchange backups for at least 90 days post-migration</label></li>
+</ul>
 
-### User & Help Desk Readiness
+### User &amp; Help Desk Readiness
 
-- [ ] Prepare user communication template (announce migration dates)
-- [ ] Train help desk on expected support tickets (Outlook profile, Autodiscover issues)
-- [ ] Create FAQ document for end users
-- [ ] Set up dedicated migration support channel (Teams, ticketing queue)
-- [ ] Run pilot user briefing session
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Prepare user communication template (announce migration dates)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Train help desk on expected support tickets (Outlook profile, Autodiscover issues)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Create FAQ document for end users</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Set up dedicated migration support channel (Teams, ticketing queue)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Run pilot user briefing session</label></li>
+</ul>
 
 ---
 
@@ -173,60 +195,72 @@ Do not begin technical implementation until Phase 2 is complete. Decisions here 
 
 ### Pilot Wave (Week 1–2)
 
-- [ ] Migrate pilot group (IT staff and volunteer early adopters)
-- [ ] Validate Autodiscover connectivity for all client types
-- [ ] Confirm mobile device ActiveSync provisioning
-- [ ] Test calendar sharing and free/busy information
-- [ ] Validate mail flow (internal, external, relays)
-- [ ] Verify public folder access if retained
-- [ ] Confirm archive mailbox access
-- [ ] Collect and review pilot feedback before proceeding
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Migrate pilot group (IT staff and volunteer early adopters)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate Autodiscover connectivity for all client types</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm mobile device ActiveSync provisioning</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Test calendar sharing and free/busy information</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate mail flow (internal, external, relays)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Verify public folder access if retained</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm archive mailbox access</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Collect and review pilot feedback before proceeding</label></li>
+</ul>
 
 ### Production Waves
 
-- [ ] Execute migration waves per approved schedule
-- [ ] Monitor migration queue and throughput daily
-- [ ] Resolve any failed migrations before proceeding to next wave
-- [ ] Update help desk on wave completion and expected tickets
-- [ ] Validate each wave with spot-check user calls
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Execute migration waves per approved schedule</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Monitor migration queue and throughput daily</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Resolve any failed migrations before proceeding to next wave</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Update help desk on wave completion and expected tickets</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate each wave with spot-check user calls</label></li>
+</ul>
 
 ### Mail Flow Cutover
 
-- [ ] Update MX records to point to Microsoft 365 (Exchange Online Protection) or new server
-- [ ] Update SPF, DKIM, and DMARC DNS records
-- [ ] Verify inbound mail delivery to all migrated mailboxes
-- [ ] Validate outbound mail signing and DMARC alignment
-- [ ] Monitor mail flow for 48 hours post-MX change
-- [ ] Update SMTP relay configurations for applications/devices
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Update MX records to point to Microsoft 365 (Exchange Online Protection) or new server</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Update SPF, DKIM, and DMARC DNS records</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Verify inbound mail delivery to all migrated mailboxes</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate outbound mail signing and DMARC alignment</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Monitor mail flow for 48 hours post-MX change</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Update SMTP relay configurations for applications/devices</label></li>
+</ul>
 
 ---
 
-## Phase 5 — Post-Migration & Cleanup
+## Phase 5 — Post-Migration &amp; Cleanup
 
-### Validation & Sign-Off
+### Validation &amp; Sign-Off
 
-- [ ] Confirm 100% of mailboxes are migrated and verified
-- [ ] Run post-migration user satisfaction survey
-- [ ] Validate all application integrations are functional
-- [ ] Confirm compliance archive and journaling is operational
-- [ ] Obtain formal business sign-off on migration completion
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Confirm 100% of mailboxes are migrated and verified</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Run post-migration user satisfaction survey</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Validate all application integrations are functional</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Confirm compliance archive and journaling is operational</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Obtain formal business sign-off on migration completion</label></li>
+</ul>
 
 ### Decommissioning
 
-- [ ] Remove legacy Exchange servers from DAG (if applicable)
-- [ ] Uninstall Exchange from legacy servers following Microsoft guidance
-  - Note: Do not delete Exchange servers from AD without proper uninstall
-- [ ] Reclaim server hardware or decommission VMs
-- [ ] Remove or archive legacy Exchange backup jobs
-- [ ] Update CMDB and infrastructure documentation
-- [ ] Cancel unused on-premises Exchange-related licenses or subscriptions
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Remove legacy Exchange servers from DAG (if applicable)</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Uninstall Exchange from legacy servers following Microsoft guidance</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Do NOT delete Exchange server objects from Active Directory without proper uninstall</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Reclaim server hardware or decommission VMs</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Remove or archive legacy Exchange backup jobs</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Update CMDB and infrastructure documentation</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Cancel unused on-premises Exchange-related licenses or subscriptions</label></li>
+</ul>
 
 ### Documentation
 
-- [ ] Update network diagrams to reflect new mail infrastructure
-- [ ] Document new MX, SPF, DKIM, DMARC configuration
-- [ ] Record new admin procedures for Exchange Online or Exchange SE
-- [ ] Archive migration project documentation for audit purposes
+<ul class="eos-checklist">
+  <li><label><input type="checkbox" class="eos-task"> Update network diagrams to reflect new mail infrastructure</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Document new MX, SPF, DKIM, DMARC configuration</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Record new admin procedures for Exchange Online or Exchange SE</label></li>
+  <li><label><input type="checkbox" class="eos-task"> Archive migration project documentation for audit purposes</label></li>
+</ul>
 
 {: .note }
 Keep legacy Exchange servers accessible (but offline or isolated) for at least 30 days post-migration to handle edge cases such as delayed mail delivery, legal hold review, or rollback needs.
@@ -237,14 +271,13 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
   var STORAGE_KEY = 'eos-checklist-v1';
 
   function init() {
-    var checkboxes = Array.from(document.querySelectorAll('input.task-list-item-checkbox'));
+    var checkboxes = Array.from(document.querySelectorAll('input.eos-task'));
     if (!checkboxes.length) return;
 
     var saved = {};
     try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
 
     checkboxes.forEach(function (cb, i) {
-      cb.removeAttribute('disabled');
       if (saved[i]) cb.checked = true;
       cb.addEventListener('change', function () {
         saveState(checkboxes);
@@ -271,19 +304,12 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
     if (fillEl) fillEl.style.width = pct + '%';
   }
 
-  function getItemText(li) {
-    return Array.from(li.childNodes)
-      .filter(function (n) { return n.nodeType === 3; })
-      .map(function (n) { return n.textContent.trim(); })
-      .filter(function (t) { return t.length > 0; })
-      .join(' ');
-  }
-
   function buildRows() {
     var rows = [['Phase', 'Section', 'Task', 'Status']];
     var currentPhase = '';
     var currentSection = '';
-    var els = Array.from(document.querySelectorAll('h2, h3, li.task-list-item'));
+
+    var els = Array.from(document.querySelectorAll('h2, h3, li > label > input.eos-task'));
     els.forEach(function (el) {
       if (el.closest('details')) return;
       var tag = el.tagName;
@@ -292,10 +318,9 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
       } else if (tag === 'H3') {
         currentSection = el.textContent.replace(/\s+/g, ' ').trim();
       } else {
-        var cb = el.querySelector(':scope > input[type="checkbox"]');
-        if (!cb) return;
-        var text = getItemText(el);
-        rows.push([currentPhase, currentSection, text, cb.checked ? 'Completed' : 'Pending']);
+        var label = el.closest('label');
+        var text = label ? label.textContent.trim() : '';
+        rows.push([currentPhase, currentSection, text, el.checked ? 'Completed' : 'Pending']);
       }
     });
     return rows;
@@ -303,7 +328,7 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
 
   window.resetChecklist = function () {
     if (!confirm('Reset all checkboxes to unchecked?')) return;
-    var checkboxes = Array.from(document.querySelectorAll('input.task-list-item-checkbox'));
+    var checkboxes = Array.from(document.querySelectorAll('input.eos-task'));
     checkboxes.forEach(function (cb) { cb.checked = false; });
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
     updateProgress(checkboxes);
@@ -314,8 +339,7 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
     var csv = rows.map(function (r) {
       return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
     }).join('\r\n');
-    var bom = '﻿'; // UTF-8 BOM for Excel compatibility
-    var blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8;' });
+    var blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'Exchange-Migration-Checklist.csv';
@@ -326,20 +350,12 @@ Keep legacy Exchange servers accessible (but offline or isolated) for at least 3
 
   window.exportChecklistExcel = function () {
     if (typeof XLSX === 'undefined') {
-      alert('Excel library not loaded — please try Export CSV instead.');
+      alert('Excel library not loaded. Please try Export CSV instead.');
       return;
     }
     var rows = buildRows();
     var ws = XLSX.utils.aoa_to_sheet(rows);
-    ws['!cols'] = [{ wch: 32 }, { wch: 26 }, { wch: 65 }, { wch: 12 }];
-    // Bold header row
-    var headerRange = XLSX.utils.decode_range(ws['!ref']);
-    for (var c = headerRange.s.c; c <= headerRange.e.c; c++) {
-      var cellAddr = XLSX.utils.encode_cell({ r: 0, c: c });
-      if (ws[cellAddr]) {
-        ws[cellAddr].s = { font: { bold: true }, fill: { fgColor: { rgb: 'D0E4F7' } } };
-      }
-    }
+    ws['!cols'] = [{ wch: 34 }, { wch: 28 }, { wch: 68 }, { wch: 12 }];
     var wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Migration Checklist');
     XLSX.writeFile(wb, 'Exchange-Migration-Checklist.xlsx');
