@@ -12,8 +12,8 @@ permalink: /
 <div class="hero">
   <h1>Exchange Server<br>End of Support</h1>
   <p class="hero-sub">
-    Assess, plan, and execute your migration strategy before Oct 14, 2025. 
-    A comprehensive guide for IT decision-makers.
+    Exchange Server 2016 &amp; 2019 support ended Oct 14, 2025.
+    Migrate now to secure your organization — a comprehensive guide for IT decision-makers.
   </p>
   <div style="display: flex; gap: 1rem;">
     <a href="{% link docs/checklist.md %}" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700;">Get Started</a>
