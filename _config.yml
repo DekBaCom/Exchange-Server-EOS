@@ -4,6 +4,9 @@ description: >-
   Exchange Server end of support — covering migration options, checklists,
   TCO analysis, risks, and licensing.
 
+url: "https://dekbacom.github.io"
+baseurl: "/Exchange-Server-EOS"
+
 remote_theme: just-the-docs/just-the-docs
 
 color_scheme: exchange
