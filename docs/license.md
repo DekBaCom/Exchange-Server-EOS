@@ -99,13 +99,13 @@ Organizations with active Software Assurance on Exchange 2019 may be eligible fo
 
 ## Microsoft 365 Licensing
 
-Microsoft 365 bundles Exchange Online with the broader Microsoft productivity platform. Choose the plan based on organizational size and feature requirements.
+Microsoft 365 bundles Exchange Online with the broader Microsoft productivity platform ([Microsoft 365 plans](https://microsoft.com/microsoft-365/business/microsoft-365-business-basic)). Choose the plan based on organizational size and feature requirements.
 
 ### Business Plans (Up to 300 Users)
 
 | Plan | Price (est.) | Exchange Storage | Key Inclusions |
 |:---|---:|:---:|:---|
-| Microsoft 365 Business Basic | ~$6/user/mo | 50 GB | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
+| [Microsoft 365 Business Basic](https://microsoft.com/microsoft-365/business/microsoft-365-business-basic) | ~$6/user/mo | 50 GB | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
 | Microsoft 365 Business Standard | ~$12.50/user/mo | 50 GB | Business Basic + desktop Office apps |
 | Microsoft 365 Business Premium | ~$22/user/mo | 50 GB + archive | Standard + Intune, Entra ID P1, Defender for Business |
 
@@ -113,14 +113,14 @@ Microsoft 365 bundles Exchange Online with the broader Microsoft productivity pl
 
 | Plan | Price (est.) | Exchange Storage | Key Inclusions |
 |:---|---:|:---:|:---|
-| Microsoft 365 E1 | ~$10/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
-| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | E1 + desktop Office, Compliance (Purview), Intune, Entra ID P1 |
-| Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | E3 + Defender for O365 P2, Purview eDiscovery Premium, Power BI Pro |
+| [Microsoft 365 E1](https://microsoft.com/microsoft-365/enterprise/microsoft-365-enterprise-plans) | ~$10/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
+| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | E1 + desktop Office, [Compliance (Purview)](https://microsoft.com/compliance/purview), Intune, Entra ID P1 |
+| Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://microsoft.com/docs/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
 | Microsoft 365 F3 (Frontline) | ~$8/user/mo | 2 GB | Email + Teams for frontline/shift workers |
 
 ### Exchange Online Standalone Plans
 
-If you only need email (no Teams, no Office apps), standalone Exchange Online plans are available:
+If you only need email (no Teams, no Office apps), [standalone Exchange Online plans](https://microsoft.com/docs/office365/servicedescriptions/exchange-online-service-description/exchange-online-plans-and-pricing) are available:
 
 | Plan | Price (est.) | Storage | Features |
 |:---|---:|:---:|:---|
@@ -132,11 +132,11 @@ If you only need email (no Teams, no Office apps), standalone Exchange Online pl
 
 | Add-On | Price (est.) | Purpose |
 |:---|---:|:---|
-| Microsoft Defender for Office 365 Plan 1 | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
+| [Microsoft Defender for Office 365 Plan 1](https://microsoft.com/security/business/microsoft-defender-office-365) | ~$2/user/mo | Anti-phishing, safe links, safe attachments |
 | Microsoft Defender for Office 365 Plan 2 | ~$5/user/mo | Plan 1 + threat investigation, attack simulation |
-| Microsoft 365 Backup | ~$0.15/GB/mo | Native backup for Exchange Online, OneDrive, SharePoint |
-| Purview Information Protection P1 | Included in E3 | Sensitivity labels, encryption |
-| Purview eDiscovery Premium | Included in E5 | Advanced legal hold and case management |
+| [Microsoft 365 Backup](https://microsoft.com/docs/microsoft-365-backup/overview) | ~$0.15/GB/mo | Native backup for Exchange Online, OneDrive, SharePoint |
+| [Purview Information Protection P1](https://microsoft.com/compliance/purview) | Included in E3 | Sensitivity labels, encryption |
+| [Purview eDiscovery Premium](https://microsoft.com/docs/microsoft-365/compliance/overview-ediscovery-20) | Included in E5 | Advanced legal hold and case management |
 
 ---
 
@@ -157,7 +157,7 @@ If you only need email (no Teams, no Office apps), standalone Exchange Online pl
 
 ## Exchange Hybrid License
 
-Organizations maintaining an on-premises Exchange server purely for hybrid management (not hosting mailboxes) qualify for the **Exchange Hybrid License** — a free license from Microsoft.
+Organizations maintaining an on-premises Exchange server purely for hybrid management (not hosting mailboxes) qualify for the **[Exchange Hybrid License](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-agent-and-licensing)** — a free license from Microsoft.
 
 **Eligibility requirements:**
 - Organization must have active Microsoft 365 / Exchange Online subscriptions
@@ -175,8 +175,8 @@ For organizations already licensing Microsoft 365 or Windows via CAL Suites:
 | Suite | Exchange Entitlement |
 |:---|:---|
 | Microsoft 365 Business Premium CAL | Exchange Online Plan 1 included |
-| Core CAL Suite | Exchange Standard CAL included |
-| Enterprise CAL Suite | Exchange Enterprise CAL included |
+| [Core CAL Suite](https://microsoft.com/licensing/licensing-programs/core-cal-suite) | Exchange Standard CAL included |
+| [Enterprise CAL Suite](https://microsoft.com/licensing/licensing-programs/enterprise-cal-suite) | Exchange Enterprise CAL included |
 | Microsoft 365 Enterprise Suite | Exchange Online Plan 2 included |
 
 ---
@@ -193,7 +193,7 @@ A: Organizations with active Software Assurance may have step-up rights. Those w
 A: Perpetual licenses remain legally yours, but have no further use once Exchange servers are decommissioned. They cannot be transferred to another organization under standard Microsoft terms.
 
 **Q: Is there a nonprofit or education discount for Microsoft 365?**  
-A: Yes. Microsoft offers substantially discounted and free Microsoft 365 plans for eligible nonprofits and educational institutions through the Microsoft 365 Nonprofit and Microsoft 365 Education programs. Some plans are free for eligible organizations.
+A: Yes. Microsoft offers substantially discounted and free Microsoft 365 plans for eligible nonprofits and educational institutions through the [Microsoft 365 Nonprofit Program](https://microsoft.com/nonprofits/microsoft-365) and [Microsoft 365 Education Program](https://microsoft.com/education/products/microsoft-365). Some plans are free for eligible organizations.
 
 **Q: What is the minimum commitment for Microsoft 365?**  
 A: Annual subscriptions offer the lowest per-user pricing. Month-to-month subscriptions are available at a 20% premium. Enterprise Agreements typically require a 3-year commitment with a 250-seat minimum.

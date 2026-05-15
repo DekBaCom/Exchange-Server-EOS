@@ -70,7 +70,7 @@ Use this framework to prioritize risks by **likelihood** (how probably the risk 
 - Implement network segmentation (Exchange in a DMZ or isolated segment)
 - Enable immutable backups (air-gapped or cloud-hosted) for all Exchange data
 - Deploy endpoint detection and response (EDR) on Exchange servers
-- Enable Windows Event Log forwarding to a SIEM
+- Enable Windows Event Log forwarding to a SIEM ([Incident response](https://microsoft.com/security/incident-response))
 - Test incident response plan for Exchange compromise scenario
 
 ---

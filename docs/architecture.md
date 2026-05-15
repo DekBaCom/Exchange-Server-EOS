@@ -22,7 +22,7 @@ Visual representations of the primary migration paths and solution architectures
 
 ## Use Case 1: Microsoft 365 / Exchange Online (Cloud First)
 
-The **Cloud First** strategy is recommended for organizations seeking the lowest TCO and a modern, always-up-to-date mail infrastructure.
+The **Cloud First** strategy is recommended for organizations seeking the lowest TCO and a modern, always-up-to-date mail infrastructure. ([Exchange Online documentation](https://microsoft.com/docs/exchange/exchange-online))
 
 ```mermaid
 graph TD
@@ -45,15 +45,15 @@ graph TD
 ```
 
 ### Key Components:
-- **Microsoft Entra ID:** Provides identity synchronization and Single Sign-On (SSO).
-- **Exchange Online Protection (EOP):** Handles anti-spam and anti-malware filtering as the primary entry point.
-- **SMTP Relay:** Local devices and applications are updated to relay directly to the cloud or via a simplified on-premises relay.
+- **Microsoft Entra ID:** Provides identity synchronization and Single Sign-On (SSO) ([Entra ID hybrid identity](https://microsoft.com/docs/entra/identity/hybrid/whatis-hybrid-identity)).
+- **Exchange Online Protection (EOP):** Handles anti-spam and anti-malware filtering ([EOP documentation](https://microsoft.com/docs/office365/security/exchange-online-protection-overview)) as the primary entry point.
+- **SMTP Relay:** Local devices and applications are updated to relay directly to the cloud ([SMTP authentication](https://microsoft.com/docs/exchange/clients-and-mobile/smtp-auth)) or via a simplified on-premises relay.
 
 ---
 
 ## Use Case 2: Hybrid Coexistence (Transitional/Long-Term)
 
-The **Hybrid** architecture is ideal for large organizations that need a phased migration or have specific compliance requirements that keep some mailboxes on-premises.
+The **Hybrid** architecture is ideal for large organizations that need a phased migration or have specific compliance requirements that keep some mailboxes on-premises. ([Hybrid deployment guide](https://microsoft.com/docs/exchange/hybrid-deployment))
 
 ```mermaid
 graph LR
@@ -76,15 +76,15 @@ graph LR
 ```
 
 ### Key Components:
-- **Hybrid Configuration Wizard (HCW):** Establishes the trust and secure mail flow between environments.
-- **Shared Namespace:** Users share the same `@company.com` domain regardless of where their mailbox is located.
-- **Cross-Premises Free/Busy:** Allows users to see each other's calendar availability during the transition.
+- **Hybrid Configuration Wizard (HCW):** Establishes the trust and secure mail flow between environments ([HCW guide](https://microsoft.com/docs/exchange/hybrid-deployment/hybrid-configuration-wizard)).
+- **Shared Namespace:** Users share the same `@company.com` domain regardless of where their mailbox is located ([Mail flow](https://microsoft.com/docs/exchange/hybrid-deployment/mail-flow-in-hybrid-deployments)).
+- **Cross-Premises Free/Busy:** Allows users to see each other's calendar availability ([Free/busy sharing](https://microsoft.com/docs/exchange/hybrid-deployment/free-busy-in-hybrid-deployments)) during the transition.
 
 ---
 
 ## Use Case 3: On-Premises Modernization (Exchange Server SE)
 
-The **On-Premises** strategy is for organizations that must maintain data sovereignty due to strict regulatory or data residency requirements.
+The **On-Premises** strategy is for organizations that must maintain data sovereignty due to strict regulatory or data residency requirements. ([Exchange Server SE](https://microsoft.com/docs/exchange))
 
 ```mermaid
 graph TD
@@ -106,6 +106,6 @@ graph TD
 ```
 
 ### Key Components:
-- **Database Availability Group (DAG):** Provides high availability and continuous replication of mailbox databases.
-- **Exchange Server SE:** The subscription-based successor to Exchange 2019, ensuring a supported on-premises environment.
-- **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability.
+- **Database Availability Group (DAG):** Provides high availability and continuous replication ([DAG architecture](https://microsoft.com/docs/exchange/architecture/database-availability-groups)) of mailbox databases.
+- **Exchange Server SE:** The subscription-based successor to Exchange 2019 ([Exchange SE licensing](https://microsoft.com/docs/exchange/licensing)), ensuring a supported on-premises environment.
+- **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability ([High availability](https://microsoft.com/docs/exchange/architecture/high-availability)).

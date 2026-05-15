@@ -78,7 +78,7 @@ Running Exchange 2019 past October 2025 carries unquantifiable security incident
 
 | Cost Item | Year 1 | Years 2–5 (each) |
 |:---|---:|---:|
-| Microsoft 365 E3 licenses (500 × $36/mo) | $216,000 | $216,000 |
+| Microsoft 365 E3 licenses ([pricing](https://microsoft.com/microsoft-365/business/microsoft-365-enterprise-plans-and-pricing)) (500 × $36/mo) | $216,000 | $216,000 |
 | Migration project (tools, consultant) | $50,000 | $0 |
 | IT admin time (0.5 FTE ×50% M365) | $15,000 | $15,000 |
 | Network upgrades (bandwidth, SD-WAN) | $20,000 | $5,000 |
@@ -87,14 +87,14 @@ Running Exchange 2019 past October 2025 carries unquantifiable security incident
 | **5-Year Total** | | **~$1,263,000** |
 
 {: .note }
-Microsoft 365 E3 at $36/user/month includes Exchange Online, Teams, SharePoint, OneDrive, Office apps, Intune, Entra ID P1, and Purview compliance tools. When comparing purely email costs, use Exchange Online Plan 2 at ~$8/user/month ($48,000/year for 500 users) if you only need email.
+Microsoft 365 E3 at $36/user/month includes Exchange Online, Teams, SharePoint, OneDrive, Office apps, Intune, Entra ID P1, and [Purview compliance tools](https://microsoft.com/compliance/purview). When comparing purely email costs, use [Exchange Online Plan 2](https://microsoft.com/docs/office365/servicedescriptions/exchange-online-service-description/exchange-online-plans-and-pricing) at ~$8/user/month ($48,000/year for 500 users) if you only need email.
 
 ### Microsoft 365 Exchange Online Plan 2 (Email Only)
 
 | Cost Item | Year 1 | Years 2–5 (each) |
 |:---|---:|---:|
-| Exchange Online Plan 2 (500 × $8/mo) | $48,000 | $48,000 |
-| Microsoft Defender for Office 365 Plan 1 | $12,000 | $12,000 |
+| [Exchange Online Plan 2](https://microsoft.com/docs/office365/servicedescriptions/exchange-online-service-description/exchange-online-plans-and-pricing) (500 × $8/mo) | $48,000 | $48,000 |
+| [Microsoft Defender for Office 365 Plan 1](https://microsoft.com/security/business/microsoft-defender-office-365) | $12,000 | $12,000 |
 | Migration project | $40,000 | $0 |
 | IT admin time (0.25 FTE) | $10,000 | $10,000 |
 | Training | $5,000 | $1,000 |
@@ -104,16 +104,16 @@ Microsoft 365 E3 at $36/user/month includes Exchange Online, Teams, SharePoint, 
 ### Exchange Server SE (On-Premises)
 
 {: .note }
-Exchange SE pricing is subscription-based. The figures below are estimates pending official Microsoft pricing. Verify with a Microsoft licensing partner.
+Exchange SE pricing is subscription-based. See [Exchange licensing](https://microsoft.com/docs/exchange/licensing) for current official pricing. Verify with a Microsoft licensing partner.
 
 | Cost Item | Year 1 | Years 2–5 (each) |
 |:---|---:|---:|
 | Server hardware (2 servers) | $40,000 | $0 |
 | Windows Server 2022 Datacenter (2x) | $12,000 | $5,000 |
-| Exchange SE Server subscription (2x) | $12,000 | $12,000 |
+| [Exchange SE Server subscription](https://microsoft.com/docs/exchange) (2x) | $12,000 | $12,000 |
 | Exchange SE CAL subscription (500x) | $40,000 | $40,000 |
 | Anti-spam / anti-malware | $8,000 | $8,000 |
-| Email archiving (Purview or third-party) | $10,000 | $10,000 |
+| Email archiving ([Purview](https://microsoft.com/compliance/purview) or third-party) | $10,000 | $10,000 |
 | IT admin time (1 FTE ×25% Exchange) | $20,000 | $20,000 |
 | Datacenter costs | $18,000 | $18,000 |
 | Backup and DR | $8,000 | $5,000 |
