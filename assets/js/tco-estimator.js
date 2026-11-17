@@ -54,7 +54,14 @@ class TCOEstimator {
     const calCostOnPrem = 76; // Exchange CAL per user/year
     const exchangeOnlineP2Cost = 8; // $/user/month
     const m365E3Cost = 39; // $/user/month (list price from Jul 1, 2026)
-    const exchangeSECalCost = 40; // $/user/year
+    const exchangeSECalCost = 80; // $/user/year ($40,000 for 500 users in tco.md)
+
+    // IT admin time: tco.md figures at the default $80,000/FTE, scaled by the FTE cost slider
+    const fteScale = costPerFte / 80000;
+    const adminOnPrem = 30000 * fteScale;
+    const adminEOP2 = 10000 * fteScale;
+    const adminM365 = 15000 * fteScale;
+    const adminSE = 20000 * fteScale;
 
     // ═══ SCENARIO 1: ON-PREMISES (Current Status Quo) ═══
     const onPrem = (() => {
@@ -64,7 +71,7 @@ class TCOEstimator {
       const calCost = calCostOnPrem * users;
       const antispam = 8000;
       const archiving = 12000;
-      const adminTime = (costPerFte * 0.2);
+      const adminTime = adminOnPrem;
       const dataCenter = datacenter ? 18000 : 0;
       const backup = 6000;
 
@@ -98,7 +105,7 @@ class TCOEstimator {
       const subscription = exchangeOnlineP2Cost * users * 12;
       const defender = 2 * users * 12;
       const migration = 40000 * migrationMult[complexity];
-      const adminTime = (costPerFte * 0.25);
+      const adminTime = adminEOP2;
       const training = 5000;
 
       const yr1 = subscription + defender + migration + adminTime + training;
@@ -126,7 +133,7 @@ class TCOEstimator {
     const m365E3 = (() => {
       const subscription = m365E3Cost * users * 12;
       const migration = 50000 * migrationMult[complexity];
-      const adminTime = (costPerFte * 0.5 * 0.5);
+      const adminTime = adminM365;
       const network = 20000;
       const training = 10000;
 
@@ -155,11 +162,11 @@ class TCOEstimator {
     const exchangeSE = (() => {
       const hwCost = datacenter ? 40000 : 0;
       const osCost = 12000;
-      const serverSub = 12000 * 2; // 2 servers
+      const serverSub = 12000; // 2 servers combined (tco.md)
       const calSub = exchangeSECalCost * users;
       const antispam = 8000;
       const archiving = 10000;
-      const adminTime = (costPerFte * 0.25);
+      const adminTime = adminSE;
       const dataCenter = datacenter ? 18000 : 0;
       const backup = 8000;
       const migration = 25000 * migrationMult[complexity];

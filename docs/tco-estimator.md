@@ -179,7 +179,8 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 - **Hardware costs** assume replacement every 5 years (included by default)
 - **Migration complexity** adjusts consultant costs: Low (–30%), Medium (baseline), High (+40%)
 - **Datacenter costs** toggle represents power, cooling, colocation, or data center facility space
-- **IT staffing** is calculated as a percentage of annual FTE cost allocated to email management
+- **IT staffing** uses the admin-time figures from [TCO Analysis]({% link docs/tco.md %}) at the default $80,000/FTE and scales them proportionally with the IT Staff Cost slider
+- **Defaults match TCO Analysis** — at 500 users, $80,000/FTE and Medium complexity the totals equal the 500-user scenario in [TCO Analysis]({% link docs/tco.md %})
 
 ---
 
@@ -197,8 +198,8 @@ All subscription costs in this estimator are based on Microsoft's published list
 | Office 365 E3 | $26.00/user/mo (was $23.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
 | Microsoft 365 F3 (Frontline) | $10.00/user/mo (was $8.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
 | Microsoft 365 E3 | $39.00/user/mo (was $36.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
-| Exchange Server SE server subscription | ~$12,000/server/year (est.) | Confirm with Microsoft licensing partner |
-| Exchange SE CAL subscription | ~$40/user/year (est.) | Confirm with Microsoft licensing partner |
+| Exchange Server SE server subscription | ~$12,000/year for 2 servers (est., as modeled in [TCO Analysis]({% link docs/tco.md %})) | Confirm with Microsoft licensing partner |
+| Exchange SE CAL subscription | ~$80/user/year (est., as modeled in [TCO Analysis]({% link docs/tco.md %})) | Confirm with Microsoft licensing partner |
 
 ## Document References
 
