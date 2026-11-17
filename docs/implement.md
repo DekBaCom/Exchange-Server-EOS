@@ -141,7 +141,7 @@ IMAP migration is not recommended for Exchange-to-Exchange migrations. Use cutov
 ## Option 2 — Exchange Server Subscription Edition
 {: #option-2-exchange-server-subscription-edition }
 
-Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE docs](https://learn.microsoft.com/en-us/exchange/new-features/new-features)). Released **June 11, 2025** (RTM is code-equivalent to Exchange Server 2019 CU15), it replaces the perpetual-license model with an annual subscription.
+Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchange Server SE docs](https://learn.microsoft.com/en-us/exchange/new-features/new-features)). Released on **July 1, 2025** (RTM is code-equivalent to Exchange Server 2019 CU15), it replaces the perpetual-license model with an annual subscription. As of this update the latest build is **Exchange Server SE RTM Nov26SU** (November 10, 2026, build 15.2.2562.57) — see [build numbers and release dates](https://learn.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates).
 
 {: .highlight }
 **Exchange SE RTM = Exchange Server 2019 CU15** — Organizations already running Exchange 2019 CU14 or CU15 can perform an **in-place upgrade** on the same server hardware.
@@ -164,18 +164,24 @@ Exchange Server SE is Microsoft's current on-premises Exchange offering ([Exchan
 |:---|:---|:---:|
 | Exchange Server 2019 CU14 or CU15 | Direct in-place upgrade to Exchange SE | ✅ Yes |
 | Exchange Server 2019 (older CU) | Update to CU14/CU15 first, then in-place upgrade to SE | ✅ Yes (2 steps) |
-| Exchange Server 2016 | Install Exchange SE on new server, move mailboxes | ❌ No |
-| Exchange Server 2013 | Install Exchange SE on new server, move mailboxes | ❌ No |
+| Exchange Server 2016 | Legacy upgrade: install Exchange SE (or 2019 CU14/CU15) on a new server, move mailboxes (2016 CU23 required for coexistence) | ❌ No |
+| Exchange Server 2013 | Legacy upgrade to Exchange 2019 CU14, fully remove Exchange 2013, then upgrade to SE (SE RTM setup blocks coexistence with 2013) | ❌ No |
 
 {: .important }
-Exchange 2016 **cannot** upgrade in-place to Exchange SE. You must: (1) deploy a new Exchange SE server into the existing org, (2) move mailboxes to the new server, then (3) decommission Exchange 2016. There is **no direct path** from Exchange 2016 to Exchange SE — an intermediate Exchange 2019 step is optional but not required if deploying Exchange SE fresh.
+Exchange 2016 **cannot** upgrade in-place to Exchange SE. You must: (1) deploy a new Exchange SE server into the existing org, (2) move mailboxes to the new server, then (3) decommission Exchange 2016. A legacy upgrade directly to Exchange SE is supported; going through Exchange 2019 CU14/CU15 first is optional.
+
+{: .warning }
+**Coexistence deadline:** Setup for Exchange SE **CU2** will block coexistence with any Exchange version that is not supported when that CU is released. Remove Exchange 2016 (and 2019, once unsupported) servers from the organization before applying SE CU2. Source: [Upgrading to Exchange Server SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/deploy-new-installations/upgrade-to-exchange-server-se).
+
+{: .note }
+Exchange SE RTM does not need a new product key and keeps working after an upgrade, but Microsoft has announced that a future SE cumulative update will require a new product key.
 
 ### Exchange SE System Requirements
 
 | Component | Requirement |
 |:---|:---|
-| Operating System | Windows Server 2022 (recommended) or Windows Server 2019 |
-| Windows Server Core | Supported (Exchange SE first version to support this) |
+| Operating System | Windows Server 2025, 2022, or 2019 (Datacenter or Standard). In-place OS upgrade between major versions with Exchange installed is not supported |
+| Windows Server Core | Supported and recommended by Microsoft ([supportability matrix](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/supportability-matrix#supported-operating-systems)) |
 | RAM | 128 GB minimum recommended; up to 256 GB supported |
 | CPU | Up to 48 cores supported |
 | .NET Framework | .NET Framework 4.8 |
@@ -202,7 +208,7 @@ Get-ExchangeDiagnosticInfo -Server $env:COMPUTERNAME -Process EdgeTransport -Com
 
 **For Exchange 2016 → Exchange SE (New Server):**
 
-1. Prepare new server with Windows Server 2022 (optionally Windows Server Core)
+1. Prepare new server with Windows Server 2022 or 2025 (Windows Server Core recommended)
 2. Install Exchange SE prerequisites (.NET 4.8, Visual C++ 2012/2013 redistributable, UCMA 4.0)
 3. Run Exchange SE setup to join the existing Exchange organization
 4. Configure client access namespaces to match existing URLs
@@ -244,7 +250,7 @@ On-Premises Active Directory ←→ Entra ID Connect ←→ Microsoft Entra ID
 ### Long-Term Hybrid Requirements
 
 - At minimum one Exchange server on-premises (for hybrid management)
-- Exchange Hybrid License  (free from Microsoft for a single Exchange SE server used only for hybrid management)
+- A properly licensed Exchange SE hybrid server (via Software Assurance or a qualifying subscription entitlement) — the free hybrid license from the Hybrid Configuration Wizard is **not** available for Exchange 2019 or later ([HCW FAQs](https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard-faqs))
 - Entra ID Connect running and healthy
 - Valid SSL certificate for hybrid namespaces
 - Ongoing maintenance of on-premises Exchange server
@@ -277,6 +283,9 @@ Timeline varies significantly by organization size, complexity, and chosen migra
 |:---|:---|
 | Exchange Server SE — What's New | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
 | Exchange SE system requirements | [Exchange Server 2019 and SE system requirements](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/system-requirements) |
+| Exchange SE upgrade, coexistence & product key | [Upgrading to Exchange Server SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/deploy-new-installations/upgrade-to-exchange-server-se) |
+| Supported operating systems | [Exchange Server supportability matrix](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/supportability-matrix) |
+| Exchange SE build numbers & release dates | [Build numbers and release dates](https://learn.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates) |
 | Exchange SE upgrade paths (blog) | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
 | Hybrid Configuration Wizard | [Hybrid deployment prerequisites](https://learn.microsoft.com/en-us/exchange/hybrid-deployment-prerequisites) |
 | New-MigrationBatch cmdlet | [New-MigrationBatch (Exchange Online PS)](https://learn.microsoft.com/en-us/powershell/module/exchange/new-migrationbatch) |

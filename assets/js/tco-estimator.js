@@ -53,7 +53,7 @@ class TCOEstimator {
     // Base per-user costs (from tco.md)
     const calCostOnPrem = 76; // Exchange CAL per user/year
     const exchangeOnlineP2Cost = 8; // $/user/month
-    const m365E3Cost = 36; // $/user/month
+    const m365E3Cost = 39; // $/user/month (list price from Jul 1, 2026)
     const exchangeSECalCost = 40; // $/user/year
 
     // ═══ SCENARIO 1: ON-PREMISES (Current Status Quo) ═══

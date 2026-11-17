@@ -96,7 +96,7 @@ permalink: /
     </div>
     <div class="calc-mini-card" style="border-left: 4px solid #2563eb;">
       <div class="calc-mini-name">Microsoft 365 E3</div>
-      <div class="calc-mini-value" id="calc-m365">$1,263,000</div>
+      <div class="calc-mini-value" id="calc-m365">$1,378,000</div>
     </div>
     <div class="calc-mini-card" style="border-left: 4px solid #d97706;">
       <div class="calc-mini-name">Exchange SE</div>
@@ -129,8 +129,8 @@ permalink: /
     var ep2 = 8*users*12 + 2*users*12 + fte*0.25 + 1000;
     var eop2 = ep1 + ep2 * 4;
     // M365 E3
-    var mp1 = 36*users*12 + 50000 + fte*0.25 + 20000 + 10000;
-    var mp2 = 36*users*12 + fte*0.25 + 5000 + 2000;
+    var mp1 = 39*users*12 + 50000 + fte*0.25 + 20000 + 10000;
+    var mp2 = 39*users*12 + fte*0.25 + 5000 + 2000;
     var m365 = mp1 + mp2 * 4;
     // Exchange SE
     var sp1 = 40000 + 12000 + 24000 + 40*users + 8000 + 10000 + fte*0.25 + 18000 + 8000 + 25000;

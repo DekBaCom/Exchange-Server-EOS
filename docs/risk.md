@@ -252,6 +252,6 @@ Use this framework to prioritize risks by **likelihood** (how probably the risk 
 
 2. **Formally accept or mitigate each risk** — Document which risks are accepted (with rationale) and which are mitigated. This protects the organization in audits.
 
-3. **Set a migration deadline** — Without a fixed target date, migrations drift. Aim to complete before the first anniversary of EOS (October 2026 at the latest).
+3. **Set a migration deadline** — Without a fixed target date, migrations drift. The first anniversary of EOS (October 14, 2026) has already passed, so set an immediate, documented target date and report progress against it.
 
 4. **Review quarterly** — Risk likelihood changes as threat landscape evolves. Reassess the register every quarter until migration is complete.

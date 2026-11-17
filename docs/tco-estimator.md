@@ -159,7 +159,7 @@ description: "Interactive Total Cost of Ownership calculator for Exchange Server
 - Minimal ongoing IT effort
 
 ### Microsoft 365 E3
-- Full enterprise suite ($36/month)
+- Full enterprise suite ($39/month from July 1, 2026; previously $36)
 - Teams, SharePoint, Office apps included
 - Advanced compliance and security
 - Higher per-user cost, broader value
@@ -191,12 +191,12 @@ All subscription costs in this estimator are based on Microsoft's published list
 |:---|---:|:---|
 | Exchange Online Plan 1 | $4.00/user/mo | [Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
 | Exchange Online Plan 2 | $8.00/user/mo | [Exchange Online plans](https://www.microsoft.com/en-us/microsoft-365/exchange/compare-microsoft-exchange-online-plans) |
-| Microsoft 365 Business Basic | $6.00/user/mo | [M365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) |
-| Microsoft 365 Business Standard | $12.50/user/mo | [M365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) |
-| Office 365 E1 | $10.00/user/mo | [Office 365 Enterprise plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
-| Office 365 E3 | $23.00/user/mo | [Office 365 Enterprise plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) |
-| Microsoft 365 F3 (Frontline) | $8.00/user/mo | [M365 F3](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) |
-| Microsoft 365 E3 | ~$36/user/mo (est.) | MSRP estimate — confirm with Microsoft |
+| Microsoft 365 Business Basic | $7.00/user/mo (was $6.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Microsoft 365 Business Standard | $14.00/user/mo (was $12.50) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Office 365 E1 | $10.00/user/mo (unchanged) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Office 365 E3 | $26.00/user/mo (was $23.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Microsoft 365 F3 (Frontline) | $10.00/user/mo (was $8.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Microsoft 365 E3 | $39.00/user/mo (was $36.00) | [Microsoft 365 pricing updates, effective Jul 1, 2026](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
 | Exchange Server SE server subscription | ~$12,000/server/year (est.) | Confirm with Microsoft licensing partner |
 | Exchange SE CAL subscription | ~$40/user/year (est.) | Confirm with Microsoft licensing partner |
 

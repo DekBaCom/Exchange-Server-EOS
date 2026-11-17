@@ -107,7 +107,7 @@ If your Exchange 2016 or 2019 licenses have **active SA at the time Exchange SE 
 |:---|:---|:---|
 | Upgrade to Exchange Server SE | Server license **free** (upgrade right) | CAL subscriptions + hardware if needed |
 | Migrate to Exchange Online / M365 | SA licenses counted toward License Mobility | M365 / EXO subscription per user |
-| Hybrid deployment | Exchange Hybrid License available | Only subscription costs |
+| Hybrid deployment | SA covers the on-premises hybrid server license | Exchange Online / M365 subscription costs (see [Exchange Hybrid Licensing](#exchange-hybrid-licensing)) |
 
 {: .note }
 Even with SA, you still need to purchase **Exchange SE CAL subscriptions** (per user, annual). SA covers the server license upgrade, not user access licenses.
@@ -135,7 +135,7 @@ Without active SA, you **cannot upgrade** Exchange 2016/2019 server licenses to 
 | Stay on Exchange 2019 (not recommended) | No new licenses needed | Security risk — unsupported after Oct 2025 |
 | Purchase Exchange SE fresh | New server subscription + new CAL subscriptions | ~$84,000/year (2 servers + 500 CALs) |
 | Migrate to Exchange Online Plan 2 | No Exchange server license needed | ~$48,000–$60,000/year |
-| Migrate to Microsoft 365 E3 | No Exchange server license needed | ~$216,000/year (full suite) |
+| Migrate to Microsoft 365 E3 | No Exchange server license needed | ~$234,000/year (full suite, $39/user/mo) |
 
 {: .important }
 For most organizations **without SA**, migrating to Exchange Online or Microsoft 365 is more cost-effective than purchasing Exchange SE from scratch. The cloud path eliminates server license costs entirely.
@@ -155,7 +155,7 @@ For most organizations **without SA**, migrating to Exchange Online or Microsoft
 ### Recommended Actions by SA Status
 
 **If you have active SA:**
-1. Confirm SA expiry date — ensure it covers the Exchange SE release (2025)
+1. Confirm SA is still active — Exchange SE has been generally available since July 1, 2025, so SA must be current to use the upgrade right
 2. Contact your licensing partner to confirm upgrade entitlements
 3. Plan upgrade to Exchange SE **or** use SA License Mobility to move to M365
 4. If staying on-premises, budget for Exchange SE CAL subscriptions and hardware
@@ -164,13 +164,16 @@ For most organizations **without SA**, migrating to Exchange Online or Microsoft
 1. Do not extend investment in on-premises Exchange 2016/2019
 2. Get quotes for Exchange Online Plan 2 or Microsoft 365 E3
 3. Evaluate total 3–5 year cost: cloud subscription vs. new Exchange SE purchase
-4. Begin migration planning immediately — Exchange 2019 reaches end of support **October 14, 2025**
+4. Begin migration planning immediately — Exchange 2016 and 2019 reached end of support on **October 14, 2025**
 
 ---
 
 ## Exchange Server SE Licensing
 
-Exchange Server Subscription Edition (SE) was released **June 11, 2025**, replacing the perpetual licensing model with an **annual subscription**. Exchange SE RTM is code-equivalent to Exchange Server 2019 CU15.
+Exchange Server Subscription Edition (SE) was released on **July 1, 2025**, replacing the perpetual licensing model with an **annual subscription**. Exchange SE RTM is code-equivalent to Exchange Server 2019 CU15 ([build numbers and release dates](https://learn.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates)).
+
+{: .note }
+Exchange SE is not sold as a standalone, publicly priced product. Microsoft Q&A guidance indicates it is delivered as a licensing entitlement — through active Software Assurance on Exchange Server licenses, or through qualifying subscriptions with on-premises use rights (for example Microsoft 365 E3/E5 CAL equivalency; the server license is still required). The per-server and per-CAL figures on this page are planning estimates only; confirm entitlements in the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms) or with your licensing partner.
 
 {: .highlight }
 **Key licensing advantage of Exchange SE over Exchange 2019:** Subscription inherently includes upgrade rights — no separate Software Assurance purchase required to stay current.
@@ -209,7 +212,13 @@ Organizations with active Software Assurance on Exchange 2019 may be eligible fo
 | Exchange 2016 | Deploy Exchange SE on new server; move mailboxes (no in-place path) |
 
 {: .important }
-There is **no direct in-place upgrade from Exchange 2016 to Exchange SE**. Exchange 2016 customers must deploy a new Exchange SE server and migrate mailboxes.
+There is **no direct in-place upgrade from Exchange 2016 to Exchange SE**. Exchange 2016 customers must deploy a new Exchange SE server and migrate mailboxes (a legacy upgrade), either directly to Exchange SE or via Exchange 2019 CU14/CU15 first.
+
+{: .warning }
+**Coexistence limits:** Exchange SE RTM setup blocks coexistence with Exchange 2013, and the setup for Exchange SE **CU2** will block coexistence with any Exchange version that is not supported at the time of its release. Coexisting with Exchange 2016 requires CU23 on every 2016 server (including Edge Transport). Plan to remove legacy servers before applying SE CU2. See [Upgrading to Exchange Server SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/deploy-new-installations/upgrade-to-exchange-server-se).
+
+{: .note }
+Exchange SE RTM does not require a new product key, but Microsoft has stated that a future SE cumulative update will introduce a new product key requirement.
 
 ---
 
@@ -219,13 +228,16 @@ Microsoft 365 bundles Exchange Online with the broader Microsoft productivity pl
 
 ### Business Plans (Up to 300 Users)
 
-Prices verified from [Microsoft 365 Business plans](https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans) (annual subscription, paid yearly).
+Prices verified from the [Microsoft 365 pricing and packaging updates](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) announcement (USD, with Teams, annual subscription paid yearly). New pricing took effect **July 1, 2026**; existing customers stay on their current price until renewal.
 
-| Plan | Confirmed Price | Exchange Storage | Key Inclusions |
-|:---|---:|:---:|:---|
-| [Microsoft 365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) | $6.00/user/mo | 50 GB | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
-| [Microsoft 365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) | $12.50/user/mo | 50 GB | Business Basic + desktop Office apps |
-| Microsoft 365 Business Premium | ~$22/user/mo | 50 GB + archive | Standard + Intune, Entra ID P1, Defender for Business |
+| Plan | Price (from Jul 1, 2026) | Previous Price | Exchange Storage | Key Inclusions |
+|:---|---:|---:|:---:|:---|
+| [Microsoft 365 Business Basic](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-basic) | $7.00/user/mo | $6.00 | 50 GB (+50 GB rolling out summer 2026) | Exchange Online, Teams, SharePoint, OneDrive (1 TB), web Office apps |
+| [Microsoft 365 Business Standard](https://www.microsoft.com/en-us/microsoft-365/business/microsoft-365-business-standard) | $14.00/user/mo | $12.50 | 50 GB (+50 GB rolling out summer 2026) | Business Basic + desktop Office apps |
+| Microsoft 365 Business Premium | $22.00/user/mo | $22.00 (unchanged) | 50 GB (+50 GB rolling out summer 2026) + archive | Standard + Intune, Entra ID P1, Defender for Business |
+
+{: .note }
+Versions without Teams are priced lower: Business Basic $5.40, Business Standard $10.79, Business Premium $18.79 per user per month. Microsoft Defender for Office 365 Plan 1 is also being added to Office 365 E3 and Microsoft 365 E3 during summer 2026.
 
 ### Enterprise Plans (Unlimited Users)
 
@@ -234,19 +246,22 @@ Microsoft offers two enterprise plan families: **Office 365** (productivity apps
 
 **Office 365 Enterprise (productivity + email focus):**
 
-| Plan | Confirmed Price | Exchange Storage | Key Inclusions |
-|:---|---:|:---:|:---|
-| [Office 365 E1](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) | $10.00/user/mo | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
-| Office 365 E3 | $23.00/user/mo | Unlimited + archive | E1 + desktop Office apps, advanced compliance |
-| Office 365 E5 | $38.00/user/mo | Unlimited + archive | E3 + Defender for O365 P2, Power BI Pro, advanced compliance |
+| Plan | Price (from Jul 1, 2026) | Previous Price | Exchange Storage | Key Inclusions |
+|:---|---:|---:|:---:|:---|
+| [Office 365 E1](https://www.microsoft.com/en-us/microsoft-365/enterprise/compare-office-365-plans) | $10.00/user/mo | $10.00 (unchanged) | 50 GB | Exchange Online Plan 1, Teams, SharePoint, web Office apps |
+| Office 365 E3 | $26.00/user/mo | $23.00 | Unlimited + archive | E1 + desktop Office apps, advanced compliance |
+| Office 365 E5 | $41.00/user/mo | $38.00 | Unlimited + archive | E3 + Defender for O365 P2, Power BI Pro, advanced compliance |
 
 **Microsoft 365 Enterprise (full platform with device & security management):**
 
-| Plan | Price (est.) | Exchange Storage | Key Inclusions |
-|:---|---:|:---:|:---|
-| Microsoft 365 E3 | ~$36/user/mo | Unlimited + archive | Office 365 E3 + Intune, Entra ID P1, Windows 11 Enterprise |
-| Microsoft 365 E5 | ~$57/user/mo | Unlimited + archive | M365 E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
-| [Microsoft 365 F3 (Frontline)](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) | $8.00/user/mo | 2 GB | Email + Teams for frontline/shift workers |
+| Plan | Price (from Jul 1, 2026) | Previous Price | Exchange Storage | Key Inclusions |
+|:---|---:|---:|:---:|:---|
+| Microsoft 365 E3 | $39.00/user/mo | $36.00 | Unlimited + archive | Office 365 E3 + Intune, Entra ID P1, Windows 11 Enterprise |
+| Microsoft 365 E5 | $60.00/user/mo | $57.00 | Unlimited + archive | M365 E3 + Defender for O365 P2, [Purview eDiscovery Premium](https://learn.microsoft.com/en-us/microsoft-365/compliance/overview-ediscovery-20), Power BI Pro |
+| [Microsoft 365 F3 (Frontline)](https://www.microsoft.com/en-us/microsoft-365/enterprise/f3) | $10.00/user/mo | $8.00 | 2 GB | Email + Teams for frontline/shift workers |
+
+{: .note }
+No-Teams enterprise variants (from July 1, 2026): Office 365 E3 $17.45, Office 365 E5 $32.45, Microsoft 365 E3 $30.45, Microsoft 365 E5 $51.45 per user per month. Source: [Microsoft 365 pricing and packaging updates](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates).
 
 ### Exchange Online Standalone Plans
 
@@ -281,20 +296,21 @@ If you only need email (no Teams, no Office apps), standalone Exchange Online pl
 | Enterprise with advanced security and eDiscovery | Microsoft 365 E5 |
 | Frontline / shift workers (kiosk) | Microsoft 365 F3 |
 | On-premises required, current version | Exchange Server SE |
-| Hybrid (some on-prem, some cloud) | Exchange Online Plan 2 + Exchange SE hybrid license |
+| Hybrid (some on-prem, some cloud) | Exchange Online Plan 2 + a licensed Exchange SE hybrid server (SA or subscription entitlement) |
 
 ---
 
-## Exchange Hybrid License
+## Exchange Hybrid Licensing
 
-Organizations maintaining an on-premises Exchange server purely for hybrid management (not hosting mailboxes) qualify for the **Exchange Hybrid License** — a free license from Microsoft.
+Every Exchange server in a hybrid deployment must be licensed. The Hybrid Configuration Wizard (HCW) can detect and apply a **free hybrid license** only for designated **Exchange 2010 SP3, 2013, and 2016** hybrid servers.
 
-**Eligibility requirements:**
-- Organization must have active Microsoft 365 / Exchange Online subscriptions
-- The on-premises Exchange server must be used only for hybrid configuration purposes
-- No production mailboxes hosted on the hybrid server
+{: .warning }
+Per Microsoft Learn ([Hybrid Configuration wizard FAQs](https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard-faqs)), **the free Exchange Server license is not available for Exchange 2019 or later hybrid servers**. A hybrid server running Exchange 2019 or Exchange SE must be licensed through active Software Assurance or a qualifying subscription entitlement.
 
-To obtain the Exchange Hybrid License, contact Microsoft or your licensing partner.
+**What this means in practice:**
+- If your only remaining Exchange server is an Exchange 2016 hybrid server, it is no longer supported — plan to move the hybrid role to a licensed Exchange SE server.
+- Organizations with no Software Assurance need to budget for a licensed Exchange SE server even if it hosts no mailboxes.
+- Confirm your specific entitlements with Microsoft or your licensing partner.
 
 ---
 
@@ -344,5 +360,10 @@ The following Microsoft documentation was used as the primary source for this pa
 | Exchange Server SE new features | [What's new in Exchange SE](https://learn.microsoft.com/en-us/exchange/new-features/new-features) |
 | Exchange SE licensing & subscription model | [Exchange Server SE](https://learn.microsoft.com/en-us/exchange) |
 | Exchange SE in-place upgrade blog | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
+| Exchange SE upgrade, coexistence & product key | [Upgrading to Exchange Server SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/deploy-new-installations/upgrade-to-exchange-server-se) |
+| Exchange SE build numbers & release dates | [Exchange Server build numbers and release dates](https://learn.microsoft.com/en-us/exchange/new-features/build-numbers-and-release-dates) |
+| Microsoft 365 price changes (effective Jul 1, 2026) | [Microsoft 365 Pricing and Packaging Updates](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates) |
+| Free hybrid license limits | [Hybrid Configuration wizard FAQs](https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard-faqs) |
+| Exchange 2016/2019 end of support | [Exchange Server 2019 and 2016 end of support roadmap](https://learn.microsoft.com/en-us/troubleshoot/exchange/administration/exchange-2019-2016-end-of-support) |
 | Volume Licensing Service Center (SA check) | [Microsoft VLSC](https://www.microsoft.com/licensing/servicecenter) |
 | Microsoft 365 Nonprofit Program | [M365 for Nonprofits](https://www.microsoft.com/en-us/nonprofits/microsoft-365) |

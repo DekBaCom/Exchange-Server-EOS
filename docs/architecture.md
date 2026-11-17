@@ -86,7 +86,7 @@ graph LR
 
 The **On-Premises** strategy is for organizations that must maintain data sovereignty due to strict regulatory or data residency requirements. ([Exchange Server SE new features](https://learn.microsoft.com/en-us/exchange/new-features/new-features))
 
-Exchange Server SE was released **June 11, 2025**. Its RTM build is code-equivalent to Exchange Server 2019 CU15. Organizations running Exchange 2019 CU14 or CU15 can perform an **in-place upgrade** on existing hardware.
+Exchange Server SE was released on **July 1, 2025**. Its RTM build is code-equivalent to Exchange Server 2019 CU15. Organizations running Exchange 2019 CU14 or CU15 can perform an **in-place upgrade** on existing hardware.
 
 ### Upgrade Path Diagram
 
@@ -95,7 +95,7 @@ flowchart LR
     EX2016["Exchange Server 2016\n(EOL Oct 2025)"]
     EX2019old["Exchange Server 2019\n(CU13 or older)"]
     EX2019cu["Exchange Server 2019\nCU14 / CU15"]
-    EXSE["Exchange Server SE\n(Released Jun 2025)"]
+    EXSE["Exchange Server SE\n(Released Jul 2025)"]
     Cloud["Microsoft 365 /\nExchange Online"]
 
     EX2016 -->|"New server deploy\n(no in-place)"| EXSE
@@ -128,9 +128,9 @@ graph TD
 
 ### Key Components:
 - **Database Availability Group (DAG):** Provides high availability and continuous replication of mailbox databases.
-- **Exchange Server SE:** Released June 2025; subscription-based successor to Exchange 2019 with in-place upgrade from CU14/CU15. Supports Windows Server Core, enforces TLS 1.2/1.3, and includes modern authentication via ADFS.
+- **Exchange Server SE:** Released July 2025; subscription-based successor to Exchange 2019 with in-place upgrade from CU14/CU15. Supports Windows Server Core, enforces TLS 1.2/1.3, and includes modern authentication via ADFS.
 - **Load Balancer:** Distributes client traffic across multiple servers to ensure service availability.
-- **Windows Server 2022:** Required OS for new Exchange SE deployments; Windows Server Core now supported for the first time.
+- **Windows Server 2022 / 2025:** Exchange SE is supported on Windows Server 2019, 2022, and 2025 (Datacenter or Standard). Windows Server Core is supported and recommended by Microsoft ([supportability matrix](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/supportability-matrix#supported-operating-systems)).
 
 ---
 
@@ -142,6 +142,7 @@ graph TD
 | Exchange SE architecture | [Exchange Server architecture](https://learn.microsoft.com/en-us/exchange/architecture/architecture) |
 | Exchange SE upgrade paths (blog) | [Upgrading to Exchange Server SE](https://techcommunity.microsoft.com/blog/exchange/upgrading-your-organization-from-current-versions-to-exchange-server-se/4241305) |
 | Exchange SE system requirements | [System requirements for Exchange SE](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/system-requirements) |
+| Supported operating systems | [Exchange Server supportability matrix](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/supportability-matrix) |
 | Exchange Online documentation | [Exchange Online](https://learn.microsoft.com/en-us/exchange/exchange-online) |
 | Entra ID hybrid identity | [Microsoft Entra ID hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity) |
 | Hybrid deployment overview | [Exchange Server hybrid deployments](https://learn.microsoft.com/en-us/exchange/exchange-hybrid) |

@@ -78,16 +78,16 @@ Running Exchange 2019 past October 2025 carries unquantifiable security incident
 
 | Cost Item | Year 1 | Years 2–5 (each) |
 |:---|---:|---:|
-| Microsoft 365 E3 licenses ([pricing](https://microsoft.com/microsoft-365/business/microsoft-365-enterprise-plans-and-pricing)) (500 × $36/mo) | $216,000 | $216,000 |
+| Microsoft 365 E3 licenses ([pricing](https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates)) (500 × $39/mo) | $234,000 | $234,000 |
 | Migration project (tools, consultant) | $50,000 | $0 |
 | IT admin time (0.5 FTE ×50% M365) | $15,000 | $15,000 |
 | Network upgrades (bandwidth, SD-WAN) | $20,000 | $5,000 |
 | Training and change management | $10,000 | $2,000 |
-| **Annual Total (steady state)** | **$311,000** | **$238,000** |
-| **5-Year Total** | | **~$1,263,000** |
+| **Annual Total (steady state)** | **$329,000** | **$256,000** |
+| **5-Year Total** | | **~$1,353,000** |
 
 {: .note }
-Microsoft 365 E3 at $36/user/month includes Exchange Online, Teams, SharePoint, OneDrive, Office apps, Intune, Entra ID P1, and Purview compliance tools. When comparing purely email costs, use Exchange Online Plan 2 at ~$8/user/month ($48,000/year for 500 users) if you only need email.
+Microsoft 365 E3 was $36/user/month until June 30, 2026 and is **$39/user/month from July 1, 2026** (existing customers keep their old price until renewal). At $39/user/month it includes Exchange Online, Teams, SharePoint, OneDrive, Office apps, Intune, Entra ID P1, and Purview compliance tools. When comparing purely email costs, use Exchange Online Plan 2 at ~$8/user/month ($48,000/year for 500 users) if you only need email.
 
 ### Microsoft 365 Exchange Online Plan 2 (Email Only)
 
@@ -130,7 +130,7 @@ Exchange SE pricing is subscription-based. See Exchange licensing information fo
 | Exchange Online Plan 2 (email only) | ~$399,000 | ~$160 |
 | On-premises Exchange (unsupported) | ~$453,400 | ~$181 |
 | Exchange Server SE (on-premises) | ~$665,000 | ~$266 |
-| Microsoft 365 E3 (full suite) | ~$1,263,000 | ~$505 |
+| Microsoft 365 E3 (full suite) | ~$1,353,000 | ~$541 |
 
 {: .highlight }
 **Key insight:** Exchange Online Plan 2 is cost-competitive with continued on-premises operation — and eliminates the security debt of running unsupported software. Microsoft 365 E3 costs significantly more per-email, but includes the full Microsoft 365 productivity suite, often displacing separate tools for Teams, SharePoint, file storage, and endpoint management.
