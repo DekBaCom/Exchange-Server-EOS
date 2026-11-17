@@ -44,7 +44,9 @@ body {
 /* ── Modern Hero Section ────────────────────────────────── */
 .hero {
   position: relative;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,120,212,0.15) 0%, var(--slate-900) 100%);
+  background:
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,120,212,0.25) 0%, transparent 70%),
+    var(--slate-900);
   color: #fff;
   padding: 5rem 2rem;
   border-radius: var(--r-xl);
@@ -309,7 +311,7 @@ body {
 
 .estimator-layout {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -320,8 +322,6 @@ body {
   border-radius: var(--r-lg);
   border: 1px solid var(--slate-200);
   height: fit-content;
-  position: sticky;
-  top: 1rem;
 }
 
 .estimator-inputs h3 {
@@ -403,7 +403,7 @@ body {
 
 .est-stat-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -927,14 +927,6 @@ ul.eos-checklist label:has(input:checked) {
 
 /* Mobile Responsive */
 @media (max-width: 992px) {
-  .estimator-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .estimator-inputs {
-    position: static;
-  }
-
   .est-stat-cards {
     grid-template-columns: 1fr;
   }
