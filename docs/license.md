@@ -123,7 +123,7 @@ Without active SA, you **cannot upgrade** Exchange 2016/2019 server licenses to 
 
 | What You Lose | Impact |
 |:---|:---|
-| Upgrade rights to Exchange SE | Must buy new Exchange SE server subscription (~$12,000/server/year) |
+| Upgrade rights to Exchange SE | Must buy new Exchange SE server subscription (~$6,000/server/year est.) |
 | Step-up rights | Cannot reduce-cost upgrade between editions |
 | Cold DR rights | Passive failover server requires its own license |
 | Version coverage | Stuck on Exchange 2016/2019 until a new purchase is made |
@@ -133,7 +133,7 @@ Without active SA, you **cannot upgrade** Exchange 2016/2019 server licenses to 
 | Path | License Requirement | Estimated Cost (500 users) |
 |:---|:---|:---|
 | Stay on Exchange 2019 (not recommended) | No new licenses needed | Security risk — unsupported after Oct 2025 |
-| Purchase Exchange SE fresh | New server subscription + new CAL subscriptions | ~$84,000/year (2 servers + 500 CALs) |
+| Purchase Exchange SE fresh | New server subscription + new CAL subscriptions | ~$52,000/year est. (2 servers + 500 CALs) |
 | Migrate to Exchange Online Plan 2 | No Exchange server license needed | ~$48,000–$60,000/year |
 | Migrate to Microsoft 365 E3 | No Exchange server license needed | ~$234,000/year (full suite, $39/user/mo) |
 
@@ -146,7 +146,7 @@ For most organizations **without SA**, migrating to Exchange Online or Microsoft
 
 | Scenario | With Active SA | Without SA |
 |:---|:---:|:---:|
-| Upgrade to Exchange SE (server license) | Free (upgrade right) | ~$12,000/server/year |
+| Upgrade to Exchange SE (server license) | Free (upgrade right) | ~$6,000/server/year (est.) |
 | Exchange SE CAL | Annual subscription required | Annual subscription required |
 | Migrate to Exchange Online | Same cost | Same cost |
 | Migrate to Microsoft 365 | Same cost | Same cost |
@@ -182,8 +182,8 @@ Exchange SE is not sold as a standalone, publicly priced product. Microsoft Q&A 
 
 | Component | Description |
 |:---|:---|
-| Server subscription | Annual fee per Exchange SE server instance (~$12,000/server/year est.) |
-| User/Device CAL subscription | Annual fee per user or device accessing Exchange SE (~$40/user/year est.) |
+| Server subscription | Annual fee per Exchange SE server instance (~$6,000/server/year est.; $12,000 for the 2-server scenario in [TCO Analysis]({% link docs/tco.md %})) |
+| User/Device CAL subscription | Annual fee per user or device accessing Exchange SE (~$80/user/year est.; $40,000 for 500 users in [TCO Analysis]({% link docs/tco.md %})) |
 | SA not required | Subscription inherently includes upgrade rights to future versions |
 | Downgrade rights | Subscription licenses include rights to run previous versions |
 | Windows Server Core | Exchange SE supports deployment on Windows Server Core (no GUI) |
