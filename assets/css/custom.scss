@@ -83,7 +83,59 @@ body {
 }
 
 /* ── Interactive Path Wizard ───────────────────────────── */
-/* (Styles for wizard would go here) */
+.wizard-container {
+  background: var(--slate-900);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  margin: 1rem 0 3rem;
+}
+
+.wizard-step { display: none; }
+.wizard-step.active { display: block; animation: fadeIn 0.3s ease; }
+
+.wizard-q {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+
+.wizard-opts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.wizard-opt {
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  color: #fff;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.wizard-opt p { color: var(--slate-300); }
+
+.wizard-opt:hover,
+.wizard-opt:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--blue-500);
+  box-shadow: var(--shadow-glow);
+  outline: none;
+}
+
+.wizard-step .btn:not(.btn-primary) {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: none;
+}
+
+.wizard-step .btn:not(.btn-primary):hover { background: rgba(255,255,255,0.1); }
 
 /* ── Section Grid ───────────────────────────────────────── */
 .section-grid {

@@ -16,7 +16,7 @@ permalink: /
     Migrate now to secure your organization — a comprehensive guide for IT decision-makers.
   </p>
   <div style="display: flex; gap: 1rem;">
-    <a href="/Exchange-Server-EOS/{% link docs/checklist.md %}" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700;">Get Started</a>
+    <a href="{% link docs/checklist.md %}" class="btn btn-primary" style="padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700;">Get Started</a>
     <a href="#wizard" class="btn" style="color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.8rem 2rem; border-radius: 50px;">Path Wizard</a>
   </div>
 </div>
@@ -49,11 +49,11 @@ permalink: /
   <div class="wizard-step active" id="q1">
     <p class="wizard-q">Where do you want to host your mail infrastructure?</p>
     <div class="wizard-opts">
-      <div class="wizard-opt" data-next="q2-cloud">
+      <div class="wizard-opt" role="button" tabindex="0" data-next="q2-cloud">
         <strong>☁️ Cloud First</strong>
         <p style="font-size: 0.8rem; margin: 0.5rem 0 0;">Migrate to Microsoft 365 / Exchange Online.</p>
       </div>
-      <div class="wizard-opt" data-next="q2-onprem">
+      <div class="wizard-opt" role="button" tabindex="0" data-next="q2-onprem">
         <strong>🏢 On-Premises</strong>
         <p style="font-size: 0.8rem; margin: 0.5rem 0 0;">Upgrade to Exchange Server SE.</p>
       </div>
@@ -64,7 +64,7 @@ permalink: /
   <div class="wizard-step" id="q2-cloud">
     <p class="wizard-q">Cloud Recommendation</p>
     <p style="color: var(--slate-300); margin-bottom: 2rem;">Migrating to <strong>Microsoft 365</strong> offers the lowest TCO and best security posture.</p>
-    <a href="/Exchange-Server-EOS/{% link docs/implement.md %}#option-1-microsoft-365-exchange-online" class="btn btn-primary">View Cloud Guide</a>
+    <a href="{% link docs/implement.md %}#option-1-microsoft-365-exchange-online" class="btn btn-primary">View Cloud Guide</a>
     <button class="btn" style="color: #fff; margin-left: 1rem;" data-next="q1">Start Over</button>
   </div>
 
@@ -72,10 +72,39 @@ permalink: /
   <div class="wizard-step" id="q2-onprem">
     <p class="wizard-q">On-Premises Recommendation</p>
     <p style="color: var(--slate-300); margin-bottom: 2rem;">Upgrade to <strong>Exchange Server Subscription Edition (SE)</strong> for data sovereignty.</p>
-    <a href="/Exchange-Server-EOS/{% link docs/implement.md %}#option-2-exchange-server-subscription-edition" class="btn btn-primary">View Upgrade Guide</a>
+    <a href="{% link docs/implement.md %}#option-2-exchange-server-subscription-edition" class="btn btn-primary">View Upgrade Guide</a>
     <button class="btn" style="color: #fff; margin-left: 1rem;" data-next="q1">Start Over</button>
   </div>
 </div>
+
+<script>
+(function() {
+  var wizard = document.querySelector('.wizard-container');
+  if (!wizard) return;
+
+  function show(id) {
+    var steps = wizard.querySelectorAll('.wizard-step');
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].classList.toggle('active', steps[i].id === id);
+    }
+    var target = document.getElementById(id);
+    var focusable = target && target.querySelector('.wizard-opt, .btn-primary');
+    if (focusable) focusable.focus({ preventScroll: true });
+  }
+
+  wizard.addEventListener('click', function(e) {
+    var trigger = e.target.closest('[data-next]');
+    if (trigger) show(trigger.getAttribute('data-next'));
+  });
+
+  wizard.addEventListener('keydown', function(e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('wizard-opt')) {
+      e.preventDefault();
+      show(e.target.getAttribute('data-next'));
+    }
+  });
+})();
+</script>
 
 <div class="calc-box">
   <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
@@ -105,7 +134,7 @@ permalink: /
   </div>
 
   <div style="text-align: center; margin-top: 1rem;">
-    <a href="/Exchange-Server-EOS/{% link docs/tco-estimator.md %}" style="font-size: 0.9rem; font-weight: 700; color: var(--blue-600);">Open Full TCO Estimator with Charts & Export →</a>
+    <a href="{% link docs/tco-estimator.md %}" style="font-size: 0.9rem; font-weight: 700; color: var(--blue-600);">Open Full TCO Estimator with Charts & Export →</a>
   </div>
 </div>
 
