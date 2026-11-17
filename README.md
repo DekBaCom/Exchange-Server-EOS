@@ -4,6 +4,15 @@ A [Jekyll](https://jekyllrb.com/) documentation site for IT administrators and d
 
 Live site: https://dekbacom.github.io/Exchange-Server-EOS/
 
+## Features
+
+- **Migration path wizard** on the home page — pick Cloud or On-Premises and get a recommendation
+- **Quick TCO calculator** on the home page — drag to set user count and compare 5-year totals across all four paths
+- **Full TCO Estimator** with sliders, migration complexity and IT staff cost, a Chart.js cost chart and CSV/Excel export
+- **Interactive checklist** with per-task checkboxes and CSV/Excel export
+- **Architecture diagrams** rendered with Mermaid
+- **Mobile-responsive layout** verified down to 375px wide
+
 ## Contents
 
 | Page | File | Description |
