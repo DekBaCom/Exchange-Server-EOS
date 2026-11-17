@@ -396,11 +396,6 @@ class TCOEstimator {
   }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  new TCOEstimator();
-});
-
 // Export functions for manual download triggers
 function exportCSV() {
   const estimator = window.estimatorInstance;

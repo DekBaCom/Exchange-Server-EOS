@@ -214,7 +214,6 @@ All subscription costs in this estimator are based on Microsoft's published list
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="{{ '/assets/js/tco-estimator.js' | relative_url }}"></script>
 <script>
-// Update display values and tooltips as user adjusts sliders
 function updateDisplayValues() {
   const usersInput = document.getElementById('users');
   const costPerFteInput = document.getElementById('costPerFte');
@@ -232,13 +231,11 @@ function updateDisplayValues() {
   updateProgressBar();
 }
 
-// Update slider tooltip positions and values dynamically
 function updateSliderTooltips() {
   updateTooltip('users', 'usersTooltip', false);
   updateTooltip('costPerFte', 'costPerFteTooltip', true);
 }
 
-// Helper to update individual tooltip
 function updateTooltip(sliderId, tooltipId, isCurrency) {
   const slider = document.getElementById(sliderId);
   const tooltip = document.getElementById(tooltipId);
@@ -249,13 +246,10 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
   const max = parseInt(slider.max);
   const value = parseInt(slider.value);
   
-  // Calculate percentage position (0-100)
   const percentage = ((value - min) / (max - min)) * 100;
   
-  // Position tooltip horizontally centered above thumb
   tooltip.style.left = percentage + '%';
   
-  // Format and display value
   if (isCurrency) {
     tooltip.textContent = '$' + value.toLocaleString();
   } else {
@@ -263,9 +257,7 @@ function updateTooltip(sliderId, tooltipId, isCurrency) {
   }
 }
 
-// Update interactive bars for both sliders
 function updateProgressBar() {
-  // Users bar
   const usersSlider = document.getElementById('users');
   const usersFill = document.getElementById('usersBarFill');
   const usersVal = document.getElementById('usersBarValue');
@@ -274,7 +266,6 @@ function updateProgressBar() {
     usersFill.style.width = pct + '%';
     usersVal.textContent = parseInt(usersSlider.value).toLocaleString();
   }
-  // IT Cost bar
   const costSlider = document.getElementById('costPerFte');
   const costFill = document.getElementById('costBarFill');
   const costVal = document.getElementById('costBarValue');
@@ -285,7 +276,6 @@ function updateProgressBar() {
   }
 }
 
-// Ensure DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() {
     updateDisplayValues();

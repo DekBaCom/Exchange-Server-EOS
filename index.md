@@ -119,20 +119,15 @@ permalink: /
   }
 
   function calcTCO(users) {
-    // Line items mirror docs/tco.md (500-user scenario); per-user items scale with users
-    // On-Premises
     var op1 = 40000 + 12000 + 1400 + 76*users + 8000 + 12000 + 30000 + 18000 + 6000;
     var op2 = 8000 + 12000 + 30000 + 18000 + 4000;
     var onprem = op1 + op2 * 4;
-    // Exchange Online P2
     var ep1 = 8*users*12 + 2*users*12 + 40000 + 10000 + 5000;
     var ep2 = 8*users*12 + 2*users*12 + 10000 + 1000;
     var eop2 = ep1 + ep2 * 4;
-    // M365 E3
     var mp1 = 39*users*12 + 50000 + 15000 + 20000 + 10000;
     var mp2 = 39*users*12 + 15000 + 5000 + 2000;
     var m365 = mp1 + mp2 * 4;
-    // Exchange SE
     var sp1 = 40000 + 12000 + 12000 + 80*users + 8000 + 10000 + 20000 + 18000 + 8000 + 25000;
     var sp2 = 5000 + 12000 + 80*users + 8000 + 10000 + 20000 + 18000 + 5000;
     var se = sp1 + sp2 * 4;
