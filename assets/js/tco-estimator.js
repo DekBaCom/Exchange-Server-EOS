@@ -29,7 +29,7 @@ class TCOEstimator {
       users: parseInt(this.usersInput?.value || 500),
       costPerFte: parseInt(this.costPerFteInput?.value || 80000),
       complexity: this.getComplexity(),
-      datacenter: this.datacenterToggle?.checked || true
+      datacenter: this.datacenterToggle ? this.datacenterToggle.checked : true
     };
   }
 
