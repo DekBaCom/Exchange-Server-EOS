@@ -96,7 +96,7 @@ permalink: /
     </div>
     <div class="calc-mini-card" style="border-left: 4px solid #2563eb;">
       <div class="calc-mini-name">Microsoft 365 E3</div>
-      <div class="calc-mini-value" id="calc-m365">$1,378,000</div>
+      <div class="calc-mini-value" id="calc-m365">$1,353,000</div>
     </div>
     <div class="calc-mini-card" style="border-left: 4px solid #d97706;">
       <div class="calc-mini-name">Exchange SE</div>
@@ -119,22 +119,22 @@ permalink: /
   }
 
   function calcTCO(users) {
-    var fte = 80000;
+    // Line items mirror docs/tco.md (500-user scenario); per-user items scale with users
     // On-Premises
-    var op1 = 40000 + 12000 + 1400 + 76*users + 8000 + 12000 + fte*0.2 + 18000 + 6000;
-    var op2 = 8000 + 12000 + fte*0.2 + 18000 + 4000;
+    var op1 = 40000 + 12000 + 1400 + 76*users + 8000 + 12000 + 30000 + 18000 + 6000;
+    var op2 = 8000 + 12000 + 30000 + 18000 + 4000;
     var onprem = op1 + op2 * 4;
     // Exchange Online P2
-    var ep1 = 8*users*12 + 2*users*12 + 40000 + fte*0.25 + 5000;
-    var ep2 = 8*users*12 + 2*users*12 + fte*0.25 + 1000;
+    var ep1 = 8*users*12 + 2*users*12 + 40000 + 10000 + 5000;
+    var ep2 = 8*users*12 + 2*users*12 + 10000 + 1000;
     var eop2 = ep1 + ep2 * 4;
     // M365 E3
-    var mp1 = 39*users*12 + 50000 + fte*0.25 + 20000 + 10000;
-    var mp2 = 39*users*12 + fte*0.25 + 5000 + 2000;
+    var mp1 = 39*users*12 + 50000 + 15000 + 20000 + 10000;
+    var mp2 = 39*users*12 + 15000 + 5000 + 2000;
     var m365 = mp1 + mp2 * 4;
     // Exchange SE
-    var sp1 = 40000 + 12000 + 24000 + 40*users + 8000 + 10000 + fte*0.25 + 18000 + 8000 + 25000;
-    var sp2 = 5000 + 24000 + 40*users + 8000 + 10000 + fte*0.25 + 18000 + 5000;
+    var sp1 = 40000 + 12000 + 12000 + 80*users + 8000 + 10000 + 20000 + 18000 + 8000 + 25000;
+    var sp2 = 5000 + 12000 + 80*users + 8000 + 10000 + 20000 + 18000 + 5000;
     var se = sp1 + sp2 * 4;
     return { onprem: onprem, eop2: eop2, m365: m365, se: se };
   }
