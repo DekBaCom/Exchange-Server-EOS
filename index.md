@@ -21,6 +21,24 @@ permalink: /
   </div>
 </div>
 
+<script>
+(function() {
+  var hero = document.querySelector('.hero');
+  if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  hero.addEventListener('mousemove', function(e) {
+    var rect = hero.getBoundingClientRect();
+    hero.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+    hero.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+  });
+
+  hero.addEventListener('mouseleave', function() {
+    hero.style.removeProperty('--mouse-x');
+    hero.style.removeProperty('--mouse-y');
+  });
+})();
+</script>
+
 <!-- ╔══════════════════════════════════╗
      ║ STATS GRID                       ║
      ╚══════════════════════════════════╝ -->
